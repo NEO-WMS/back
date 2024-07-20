@@ -12,24 +12,21 @@ import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 
 @Entity
-@Table(name="member")
+@Table(name="sell_detail")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 
-public class Member {
+public class SellDetailEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer memberNo;
-    private String memberId;
-    private String memberPw;
-    private String memberName;
-    private Integer memberDepNo;
-    private Integer memberRankNo;
-    private String memberEmail;
-    private String memberImage;
-    private String memberRegDate;
+    private Integer sellDetailNo;
+    private Integer sellDetailItemNo;
+    private Integer sellDetailAmount;
+    private Integer sellDetailSellPrice;
+    private Integer sellDetailLotNo;
+    private Integer sellDetailSellDetailNo;
 
 }

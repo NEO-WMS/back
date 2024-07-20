@@ -12,18 +12,24 @@ import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 
 @Entity
-@Table(name="lot")
+@Table(name="member")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 
-public class Lot {
+public class MemberEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer lotNo;
-    private String lotCode;
-    private Integer lotItemNo;
+    private Integer memberNo;
+    private String memberId;
+    private String memberPw;
+    private String memberName;
+    private Integer memberDepNo;
+    private Integer memberRankNo;
+    private String memberEmail;
+    private String memberImage;
+    private String memberRegDate;
 
 }

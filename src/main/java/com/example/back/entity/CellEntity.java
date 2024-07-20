@@ -12,18 +12,18 @@ import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 
 @Entity
-@Table(name="rank")
+@Table(name="cell")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 
-public class Rank {
+public class CellEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer rankNo;
-    private String rankCode;
-    private String rankName;
-
+    private Integer cellNo;
+    private Integer cellRackNo;
+    private String cellCode;
+    private String cellName;
 }

@@ -12,24 +12,22 @@ import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 
 @Entity
-@Table(name="warehouse_detail")
+@Table(name="purchase_sheet_detail")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 
-public class WarehouseDetail {
+public class PurchaseSheetDetailEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer warehouseDetailNo;
-    private String warehouseDetailLotCode;
-    private Integer warehouseDetailAmount;
-    private Integer warehouseDetailOrderedAmount;
-    private Integer warehouseDetailItemNo;
-    private Integer warehouseDetailWareNo;
-    private Integer warehouseDetailAreaNo;
-    private Integer warehouseDetailRackNo;
-    private Integer warehouseDetailCellNo;
+    private Integer purchaseSheetDetailNo;
+    private Integer purchaseSheetDetailPurchaseSheetNo;
+    private Integer purchaseSheetDetailOrderDetailNo;
+    private Integer purchaseSheetDetailAmount;
+    private Integer purchaseSheetDetailStatus;
+    private Integer purchaseSheetDetailItemNo;
+    private Integer purchaseSheetDetailWareNo;
 
 }

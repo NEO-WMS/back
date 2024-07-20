@@ -12,19 +12,19 @@ import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 
 @Entity
-@Table(name="input_warehouse")
+@Table(name="area")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 
-public class InputWarehouse {
-
+public class AreaEntity {
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer inputWarehouseNo;
-    private Integer inputWarehouseMemberNo;
-    private Integer inputWarehousePuchaseSheetNo;
-    private String inputWarehouseStatus;
+    private Integer areaNo;
+    private String areaCode;
+    private String areaName;
+    private Integer areaWareNo;
 
 }

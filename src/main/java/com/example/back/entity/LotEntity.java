@@ -12,18 +12,18 @@ import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 
 @Entity
-@Table(name="department")
+@Table(name="lot")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 
-public class Department {
+public class LotEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer departmentNo;
-    private String departmentCode;
-    private String departmentName;
+    private Integer lotNo;
+    private String lotCode;
+    private Integer lotItemNo;
 
 }
