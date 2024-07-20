@@ -3,6 +3,8 @@ package com.example.back.entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -18,6 +20,7 @@ import lombok.AllArgsConstructor;
 public class ItemMovementHistory {
     
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer itemMovementHistoryNo;
     private String itemMovementHistoryLotNo;
     private Integer itemMovementHistoryItemNo;
