@@ -12,18 +12,19 @@ import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 
 @Entity
-@Table(name="cell")
+@Table(name="rack")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 
-public class Cell {
+public class RackEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer cellNo;
-    private Integer cellRackNo;
-    private String cellCode;
-    private String cellName;
+    private Integer rackNo;
+    private Integer rackAreaNo;
+    private String rackCode;
+    private String rackName;
+
 }

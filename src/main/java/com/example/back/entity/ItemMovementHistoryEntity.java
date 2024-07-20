@@ -17,7 +17,7 @@ import lombok.AllArgsConstructor;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class ItemMovementHistory {
+public class ItemMovementHistoryEntity {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

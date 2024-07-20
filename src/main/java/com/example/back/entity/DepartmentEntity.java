@@ -12,22 +12,18 @@ import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 
 @Entity
-@Table(name="item")
+@Table(name="department")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 
-public class Item {
-    
+public class DepartmentEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer itemNo;
-    private Integer itemClientNo;
-    private String itemCode;
-    private String itemName;
-    private Integer itemInPrice;
-    private Integer itemOutPrice;
-    private String itemImage;
+    private Integer departmentNo;
+    private String departmentCode;
+    private String departmentName;
 
 }

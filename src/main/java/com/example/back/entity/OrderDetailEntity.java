@@ -12,21 +12,18 @@ import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 
 @Entity
-@Table(name="order_sheet")
+@Table(name="order_detail")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 
-public class OrderSheet {
+public class OrderDetailEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer orderSheetNo;
-    private Integer orderSheetMemberNo;
-    private Integer orderSheetClientNo;
-    private String orderSheetDay;
-    private Integer orderSheetStatus;
-    private String orderSheetOutDay;
-
+    private Integer orderDetailNo;
+    private Integer orderDetailOrderNo;
+    private Integer orderDetailItemNo;
+    private Integer orderDetailAmount;
 }

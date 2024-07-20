@@ -18,7 +18,7 @@ import lombok.AllArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 
-public class InputWarehouseDatail {
+public class InputWarehouseDetailEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

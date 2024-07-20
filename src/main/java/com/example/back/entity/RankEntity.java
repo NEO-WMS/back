@@ -12,19 +12,18 @@ import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 
 @Entity
-@Table(name="sell")
+@Table(name="rank")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 
-public class Sell {
+public class RankEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer sellNo;
-    private Integer sellMemberNo;
-    private Integer sellOrderNo;
-    private String sellDay;
+    private Integer rankNo;
+    private String rankCode;
+    private String rankName;
 
 }
