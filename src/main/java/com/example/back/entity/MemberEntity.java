@@ -31,5 +31,6 @@ public class MemberEntity {
     private String memberEmail;
     private String memberImage;
     private String memberRegDate;
+    private String memberRole;
 
 }

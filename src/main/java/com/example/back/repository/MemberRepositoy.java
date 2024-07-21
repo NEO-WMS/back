@@ -11,7 +11,8 @@ import com.example.back.entity.MemberEntity;
 
 public interface MemberRepositoy extends JpaRepository<MemberEntity, Integer> {
 
-    MemberEntity findByInputMemberNo(Integer memberNo);
+    MemberEntity findByMemberNo(Integer memberNo);
+    MemberEntity findByMemberId(String memberId);
 
     List<MemberEntity> findByOrderByMemberNoDesc();
     
