@@ -11,7 +11,7 @@ import com.example.back.entity.CellEntity;
 
 public interface CellRepository extends JpaRepository<CellEntity, Integer> {
     
-    CellEntity findByCellno(Integer cellNo);
+    CellEntity findByCellNo(Integer cellNo);
 
     List<CellEntity> findByOrderByCellNoDesc();
 

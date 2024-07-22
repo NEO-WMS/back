@@ -9,7 +9,7 @@ import com.example.back.entity.MemberEntity;
 
 @Repository
 
-public interface MemberRepositoy extends JpaRepository<MemberEntity, Integer> {
+public interface MemberRepository extends JpaRepository<MemberEntity, Integer> {
 
     MemberEntity findByMemberNo(Integer memberNo);
     MemberEntity findByMemberId(String memberId);

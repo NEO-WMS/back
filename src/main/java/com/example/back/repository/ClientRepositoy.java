@@ -13,6 +13,6 @@ public interface ClientRepositoy extends JpaRepository<ClientEntity, Integer> {
     
     ClientEntity findByClientNo(Integer clientNo);
 
-    List<ClientEntity> findByOrderByClientDesc();
+    List<ClientEntity> findByOrderByClientNoDesc();
     
 }

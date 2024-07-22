@@ -11,7 +11,7 @@ import com.example.back.entity.ItemEntity;
 
 public interface ItemRepositoy extends JpaRepository<ItemEntity, Integer> {
 
-    ItemEntity findByInputItemNo(Integer itemNo);
+    ItemEntity findByItemNo(Integer itemNo);
 
     List<ItemEntity> findByOrderByItemNoDesc();
     
