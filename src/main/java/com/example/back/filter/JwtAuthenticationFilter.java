@@ -18,7 +18,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 
 import com.example.back.entity.MemberEntity;
 import com.example.back.provider.JwtProvider;
-import com.example.back.repository.MemberRepositoy;
+import com.example.back.repository.MemberRepository;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -32,7 +32,7 @@ import lombok.RequiredArgsConstructor;
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
     
     private final JwtProvider jwtProvider;
-    private final MemberRepositoy memberRepositoy;
+    private final MemberRepository memberRepository;
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
@@ -51,7 +51,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                 return;
             }
 
-            MemberEntity memberEntity = memberRepositoy.findByMemberId(memberId);
+            MemberEntity memberEntity = memberRepository.findByMemberId(memberId);
             if (memberEntity == null) {
                 filterChain.doFilter(request, response);
                 return;
@@ -81,15 +81,15 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
     private String parseBearerToken(HttpServletRequest request) {
         
-        String authoization = request.getHeader("Authorization");
+        String authorization = request.getHeader("Authorization");
         
-        boolean hasAuthorization = StringUtils.hasText(authoization);
+        boolean hasAuthorization = StringUtils.hasText(authorization);
         if (!hasAuthorization) return null;           
         
-        boolean isBearer = authoization.startsWith("Bearer");
+        boolean isBearer = authorization.startsWith("Bearer");
         if (!isBearer) return null;
         
-        String token = authoization.substring(7);
+        String token = authorization.substring(7);
         return token;
         
     }
