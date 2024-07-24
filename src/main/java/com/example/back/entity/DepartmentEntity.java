@@ -2,6 +2,10 @@ package com.example.back.entity;
 
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+
+import com.example.back.dto.requset.department.PostDepartmentCreateRequestDto;
+import com.example.back.dto.requset.department.PutDepartmentRequestDto;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -25,5 +29,15 @@ public class DepartmentEntity {
     private Integer departmentNo;
     private String departmentCode;
     private String departmentName;
+
+    public DepartmentEntity(PostDepartmentCreateRequestDto dto) {
+        this.departmentCode = dto.getDepartmentCode();
+        this.departmentName = dto.getDepartmentName();
+    }
+
+    public DepartmentEntity(PutDepartmentRequestDto dto) {
+        this.departmentCode = dto.getDepartmentCode();
+        this.departmentName = dto.getDepartmentName();
+    }
 
 }

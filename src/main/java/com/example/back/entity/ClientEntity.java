@@ -2,6 +2,10 @@ package com.example.back.entity;
 
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+
+import com.example.back.dto.requset.client.PostClientCreateRequestDto;
+import com.example.back.dto.requset.client.PutClientRequestDto;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -36,5 +40,37 @@ public class ClientEntity {
     private String clientAddress2;
     private String clientEmail;
     private String clientBusiness;
+
+    public ClientEntity(PostClientCreateRequestDto dto) {
+        this.clientCode = dto.getClientCode();
+        this.clientCategory = dto.getClientCategory();
+        this.clientName = dto.getClientName();
+        this.clientOwner = dto.getClientOwner();
+        this.clientTel = dto.getClientTel();
+        this.clientFax = dto.getClientFax();
+        this.clientBank = dto.getClientBank();
+        this.clientAccount = dto.getClientAccount();
+        this.clientZipcode = dto.getClientZipcode();
+        this.clientAddress1 = dto.getClientAddress1();
+        this.clientAddress2 = dto.getClientAddress2();
+        this.clientEmail = dto.getClientEmail();
+        this.clientBusiness = dto.getClientBusiness();
+    }
+
+    public ClientEntity(PutClientRequestDto dto) {
+        this.clientCode = dto.getClientCode();
+        this.clientCategory = dto.getClientCategory();
+        this.clientName = dto.getClientName();
+        this.clientOwner = dto.getClientOwner();
+        this.clientTel = dto.getClientTel();
+        this.clientFax = dto.getClientFax();
+        this.clientBank = dto.getClientBank();
+        this.clientAccount = dto.getClientAccount();
+        this.clientZipcode = dto.getClientZipcode();
+        this.clientAddress1 = dto.getClientAddress1();
+        this.clientAddress2 = dto.getClientAddress2();
+        this.clientEmail = dto.getClientEmail();
+        this.clientBusiness = dto.getClientBusiness();
+    }
 
 }

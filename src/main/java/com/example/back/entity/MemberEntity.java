@@ -4,8 +4,10 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 import com.example.back.common.util.ChangeDateFormatUtil;
-import com.example.back.dto.requset.member.MemberSignInRequestDto;
-import com.example.back.dto.requset.member.MemberSignUpRequestDto;
+import com.example.back.dto.requset.auth.AuthSignInRequestDto;
+import com.example.back.dto.requset.member.PostMemberCreateRequestDto;
+import com.example.back.dto.requset.member.PutMemberRequestDto;
+import com.example.back.dto.requset.stock.PostStockMemberAddRequestDto;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -38,12 +40,12 @@ public class MemberEntity {
     private String memberRegDate;
     private String memberRole;
 
-    public MemberEntity(MemberSignInRequestDto dto) {
+    public MemberEntity(AuthSignInRequestDto dto) {
         this.memberId = dto.getMemberId();
         this.memberPw = dto.getMemberPw();
     }
 
-    public MemberEntity(MemberSignUpRequestDto dto) {
+    public MemberEntity(PostMemberCreateRequestDto dto) {
         this.memberId = dto.getMemberId();
         this.memberPw = dto.getMemberPw();
         this.memberName = dto.getMemberName();
@@ -54,4 +56,19 @@ public class MemberEntity {
         this.memberRegDate = ChangeDateFormatUtil.getCurrentDatetiem();
         this.memberRole = "ROLE_USER";
     }
+
+    public MemberEntity(PutMemberRequestDto dto) {
+        this.memberName = dto.getMemberName();
+        this.memberDepNo = dto.getMemberDepNo();
+        this.memberRankNo = dto.getMemberRankNo();
+        this.memberEmail = dto.getMemberEmail();
+        this.memberImage = dto.getMemberImage();
+        this.memberRegDate = ChangeDateFormatUtil.getCurrentDatetiem();
+        this.memberRole = "ROLE_USER";
+    }
+
+    public MemberEntity(PostStockMemberAddRequestDto dto) {
+        this.memberName = dto.getMemberName();
+    }
+
 }

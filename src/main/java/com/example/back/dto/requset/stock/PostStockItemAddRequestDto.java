@@ -1,4 +1,4 @@
-package com.example.back.dto.requset.member;
+package com.example.back.dto.requset.stock;
 
 import jakarta.validation.constraints.NotBlank;
 
@@ -10,11 +10,8 @@ import lombok.NoArgsConstructor;
 @Setter
 @NoArgsConstructor
 
-public class MemberSignInRequestDto {
+public class PostStockItemAddRequestDto {
     
     @NotBlank
-    private String memberId;
-
-    @NotBlank
-    private String memberPw;
+    private String itemName;
 }
