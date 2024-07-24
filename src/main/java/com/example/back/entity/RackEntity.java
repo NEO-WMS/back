@@ -2,6 +2,11 @@ package com.example.back.entity;
 
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+
+import com.example.back.dto.requset.stock.PostStockWarehouseAddRequestDto;
+import com.example.back.dto.requset.warehouse.PostWarehouseAreaRackCreateRequestDto;
+import com.example.back.dto.requset.warehouse.PutWarehouseAreaRackRequestDto;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -26,5 +31,19 @@ public class RackEntity {
     private Integer rackAreaNo;
     private String rackCode;
     private String rackName;
+
+    public RackEntity (PostWarehouseAreaRackCreateRequestDto dto) {
+        this.rackCode = dto.getRackCode();
+        this.rackName = dto.getRackName();
+    }
+    
+    public RackEntity (PutWarehouseAreaRackRequestDto dto) {
+        this.rackCode = dto.getRackCode();
+        this.rackName = dto.getRackName();
+    }
+
+    public RackEntity (PostStockWarehouseAddRequestDto dto) {
+        this.rackName = dto.getRackName();
+    }
 
 }

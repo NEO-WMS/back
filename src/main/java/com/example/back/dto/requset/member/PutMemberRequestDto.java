@@ -1,6 +1,7 @@
 package com.example.back.dto.requset.member;
 
 import jakarta.validation.constraints.NotBlank;
+
 import lombok.Getter;
 import lombok.Setter;
 import lombok.NoArgsConstructor;
@@ -8,15 +9,8 @@ import lombok.NoArgsConstructor;
 @Getter
 @Setter
 @NoArgsConstructor
-
-public class MemberSignUpRequestDto {
+public class PutMemberRequestDto {
     
-    @NotBlank
-    private String memberId;
-
-    @NotBlank
-    private String memberPw;
-
     @NotBlank
     private String memberName;
 
@@ -29,8 +23,6 @@ public class MemberSignUpRequestDto {
     @NotBlank
     private String memberEmail;
     
-
     private String memberImage;
-
 
 }

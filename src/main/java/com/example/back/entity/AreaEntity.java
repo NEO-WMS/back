@@ -2,6 +2,11 @@ package com.example.back.entity;
 
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+
+import com.example.back.dto.requset.stock.PostStockWarehouseAddRequestDto;
+import com.example.back.dto.requset.warehouse.PostWarehouseAreaCreateRequestDto;
+import com.example.back.dto.requset.warehouse.PutWarehouseAreaRequestDto;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -26,5 +31,19 @@ public class AreaEntity {
     private String areaCode;
     private String areaName;
     private Integer areaWareNo;
+
+    public AreaEntity (PostWarehouseAreaCreateRequestDto dto) {
+        this.areaCode = dto.getAreaCode();
+        this.areaName = dto.getAreaName();
+    }
+
+    public AreaEntity (PutWarehouseAreaRequestDto dto) {
+        this.areaCode = dto.getAreaCode();
+        this.areaName = dto.getAreaName();
+    }
+
+    public AreaEntity (PostStockWarehouseAddRequestDto dto) {
+        this.areaName = dto.getAreaName();
+    }
 
 }

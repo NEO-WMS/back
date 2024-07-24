@@ -2,6 +2,9 @@ package com.example.back.entity;
 
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+
+import com.example.back.dto.requset.stock.PostStockCreateRequestDto;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -28,11 +31,21 @@ public class InputWarehouseDetailEntity {
     private Integer inputWarehouseDetailStatus;
     private String inputWarehouseDetailArrivalDate;
     private Integer inputWarehouseDetailQty;
-    private Integer inputWarehouseDetailWareNo;
+    private Integer inputWarehouseDetailWarehouseNo;
     private Integer inputWarehouseDetailAreaNo;
     private Integer inputWarehouseDetailRackNo;
     private Integer inputWarehouseDetailCellNo;
     private Integer inputWarehouseDetailLotNo;
     private Integer inputWarehouseDetailItemNo;
+
+    public InputWarehouseDetailEntity (PostStockCreateRequestDto dto) {
+        this.inputWarehouseDetailItemNo = dto.getInputWarehouseDetailItemNo();
+        this.inputWarehouseDetailQty = dto.getInputWarehouseDetailQty();
+        this.inputWarehouseDetailWarehouseNo = dto.getInputWarehouseDetailwarehouseNo();
+        this.inputWarehouseDetailAreaNo = dto.getInputWarehouseDetailareaNo();
+        this.inputWarehouseDetailRackNo = dto.getInputWarehouseDetailrackNo();
+        this.inputWarehouseDetailCellNo = dto.getInputWarehouseDetailcellNo();
+
+    }
 
 }

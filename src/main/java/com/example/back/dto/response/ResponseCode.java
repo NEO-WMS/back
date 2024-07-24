@@ -8,11 +8,13 @@ public interface ResponseCode {
     String NO_EXIST_LOT = "NEL";
     String NO_EXIST_ITEM = "NEI";
     String NO_EXIST_AREA = "NEA";
-    String NO_EXIST_RACK = "NER";
-    String NO_EXIST_CELL = "NEC";
+    String NO_EXIST_RACK = "NERACK";
+    String NO_EXIST_RANK = "NER";
+    String NO_EXIST_CELL = "NECELL";
     String NO_EXIST_CLIENT = "NEC";
     String NO_EXIST_MEMBER = "NEM";
     String NO_EXIST_WAREHOUSE = "NEW";
+    String NO_EXIST_DEPARTMENT = "NED";
     
     String AUTHORIZATION_FAILED = "AF";
     String AUTHENTICATION_FAILED = "AF";
