@@ -29,29 +29,43 @@ public class ResponseDto {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(responseBody);
     }
 
-
     public static ResponseEntity<ResponseDto> noExistArea() {
         ResponseDto responseBody = new ResponseDto(ResponseCode.NO_EXIST_AREA, ResponseMessage.NO_EXIST_AREA);
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(responseBody);
     }
+    
     public static ResponseEntity<ResponseDto> noExistRack() {
         ResponseDto responseBody = new ResponseDto(ResponseCode.NO_EXIST_RACK, ResponseMessage.NO_EXIST_RACK);
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(responseBody);
     }
+
+    public static ResponseEntity<ResponseDto> noExistRank() {
+        ResponseDto responseBody = new ResponseDto(ResponseCode.NO_EXIST_RANK, ResponseMessage.NO_EXIST_RANK);
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(responseBody);
+    }
+
     public static ResponseEntity<ResponseDto> noExistCell() {
         ResponseDto responseBody = new ResponseDto(ResponseCode.NO_EXIST_CELL, ResponseMessage.NO_EXIST_CELL);
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(responseBody);
     }
+
     public static ResponseEntity<ResponseDto> noExistClient() {
         ResponseDto responseBody = new ResponseDto(ResponseCode.NO_EXIST_CLIENT, ResponseMessage.NO_EXIST_CLIENT);
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(responseBody);
     }
+    
     public static ResponseEntity<ResponseDto> noExistMember() {
         ResponseDto responseBody = new ResponseDto(ResponseCode.NO_EXIST_MEMBER, ResponseMessage.NO_EXIST_MEMBER);
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(responseBody);
     }
+
     public static ResponseEntity<ResponseDto> noExistWarehouse() {
         ResponseDto responseBody = new ResponseDto(ResponseCode.NO_EXIST_WAREHOUSE, ResponseMessage.NO_EXIST_WAREHOUSE);
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(responseBody);
+    }
+
+    public static ResponseEntity<ResponseDto> noExistDepartment() {
+        ResponseDto responseBody = new ResponseDto(ResponseCode.NO_EXIST_DEPARTMENT, ResponseMessage.NO_EXIST_DEPARTMENT);
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(responseBody);
     }
 
@@ -79,10 +93,10 @@ public class ResponseDto {
         ResponseDto responseBody = new ResponseDto(ResponseCode.DATABASE_ERROR, ResponseMessage.DATABASE_ERROR);
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(responseBody);
     }
-    
-    public static ResponseEntity<ResponseDto> internalServerErrorForChatroomList() {
-        ResponseDto responseBody = new ResponseDto(ResponseCode.DATABASE_ERROR, ResponseMessage.DATABASE_ERROR);
-        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(responseBody);
+
+    public static ResponseEntity<ResponseDto> validationFailed() {
+        ResponseDto responseBody = new ResponseDto(ResponseCode.VALIDATION_FAILED, ResponseMessage.VALIDATION_FAILED);
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(responseBody);
     }
 
     public static ResponseEntity<ResponseDto> pageNotFound() {
