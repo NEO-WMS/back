@@ -40,4 +40,9 @@ public class DepartmentEntity {
         this.departmentName = dto.getDepartmentName();
     }
 
+    public void update(PutDepartmentRequestDto dto) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'update'");
+    }
+
 }

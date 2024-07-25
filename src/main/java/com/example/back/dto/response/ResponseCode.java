@@ -4,7 +4,6 @@ public interface ResponseCode {
     
     String SUCCESS = "SU";
 
-    
     String NO_EXIST_LOT = "NEL";
     String NO_EXIST_ITEM = "NEI";
     String NO_EXIST_AREA = "NEA";

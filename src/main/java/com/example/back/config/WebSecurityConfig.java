@@ -46,9 +46,7 @@ public class WebSecurityConfig {
             .cors(cors -> cors
                 .configurationSource(corsConfigurationSource()))
             .authorizeHttpRequests(request -> request
-                .requestMatchers("/", "/wms/auth/**").permitAll()
-                .requestMatchers("/wms/service/**").hasRole("USER")
-                .requestMatchers("/wms/service/**").hasRole("ADMIN")
+                .requestMatchers("/", "/wms/auth/**", "/wms/service/**").permitAll()
                 .anyRequest().authenticated())
             .exceptionHandling(exception -> exception
                 .authenticationEntryPoint(new AuthorizationFailEntryPoint()))
