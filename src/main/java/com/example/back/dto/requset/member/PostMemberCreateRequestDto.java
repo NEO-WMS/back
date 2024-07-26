@@ -1,7 +1,8 @@
 package com.example.back.dto.requset.member;
 
 import jakarta.validation.constraints.NotBlank;
-
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.NoArgsConstructor;
@@ -21,10 +22,12 @@ public class PostMemberCreateRequestDto {
     @NotBlank
     private String memberName;
 
-    @NotBlank
+    @NotNull
+    @Positive
     private Integer memberDepNo;
-
-    @NotBlank
+    
+    @NotNull
+    @Positive
     private Integer memberRankNo;
 
     @NotBlank
@@ -34,3 +37,5 @@ public class PostMemberCreateRequestDto {
 
     
 }
+
+
