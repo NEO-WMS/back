@@ -30,7 +30,6 @@ public class DepartmentServiceImplimentation implements DepartmentService {
     public ResponseEntity<ResponseDto> create(PostDepartmentCreateRequestDto dto) {
         
         try {
-
             DepartmentEntity departmentEntity = new DepartmentEntity(dto);
             departmentRepository.save(departmentEntity);
 
@@ -58,7 +57,6 @@ public class DepartmentServiceImplimentation implements DepartmentService {
     public ResponseEntity<ResponseDto> delete(int departmentNo) {
 
         try {
-            
             DepartmentEntity departmentEntity = departmentRepository.findByDepartmentNo(departmentNo);
             if (departmentEntity == null) return ResponseDto.noExistDepartment();
 
@@ -76,7 +74,7 @@ public class DepartmentServiceImplimentation implements DepartmentService {
         
         try {
             DepartmentEntity departmentEntity = departmentRepository.findByDepartmentNo(departmentNo);
-            if(departmentEntity == null) return ResponseDto.noExistDepartment();
+            if (departmentEntity == null) return ResponseDto.noExistDepartment();
 
             departmentEntity.update(dto);
             departmentRepository.save(departmentEntity);
@@ -89,15 +87,15 @@ public class DepartmentServiceImplimentation implements DepartmentService {
     }
 
     @Override
-    public ResponseEntity<? super GetDepartmentSearchResponseDto> search(String searchWord) {
-        try {
+    public ResponseEntity<? super GetDepartmentSearchResponseDto> search(String search) {
 
-            if (searchWord == null || searchWord.trim().isEmpty()) {
+        try {
+            if (search == null || search.trim().isEmpty()) {
                 List<DepartmentEntity> departmentEntities = departmentRepository.findByOrderByDepartmentNoDesc();
                 return GetDepartmentSearchResponseDto.success(departmentEntities);
             }
 
-            List<DepartmentEntity> departmentEntities = departmentRepository.search(searchWord);
+            List<DepartmentEntity> departmentEntities = departmentRepository.search(search);
             return GetDepartmentSearchResponseDto.success(departmentEntities);
 
         } catch (Exception exception) {

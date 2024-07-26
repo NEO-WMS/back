@@ -10,10 +10,11 @@ import com.example.back.dto.response.department.GetDepartmentSearchResponseDto;
 
 public interface DepartmentService {
 
-    ResponseEntity<ResponseDto>create(PostDepartmentCreateRequestDto dto);
-    ResponseEntity<? super GetDepartmentResponseDto>getList();
     ResponseEntity<ResponseDto> delete(int departmentNo);
+    ResponseEntity<ResponseDto> create(PostDepartmentCreateRequestDto dto);
     ResponseEntity<ResponseDto> put(PutDepartmentRequestDto dto, int departmentNo);
-    ResponseEntity<? super GetDepartmentSearchResponseDto> search(String searchWord);
+
+    ResponseEntity<? super GetDepartmentResponseDto> getList();
+    ResponseEntity<? super GetDepartmentSearchResponseDto> search(String search);
 
 }
