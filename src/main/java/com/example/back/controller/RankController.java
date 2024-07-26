@@ -38,17 +38,20 @@ public class RankController {
     }
 
     @GetMapping("/")
-    public ResponseEntity<? super GetRankResponseDto> getList() {
+    public ResponseEntity<? super GetRankResponseDto> getList(
+
+    ) {
         ResponseEntity<? super GetRankResponseDto> response = rankService.getList();
         return response;
     }
 
     @DeleteMapping("/{rankNo}")
     public ResponseEntity<ResponseDto> delete (
-        @PathVariable("rankNo") int rankNo) {
-            ResponseEntity<ResponseDto> response = rankService.delete(rankNo);
-            return response;
-        }
+        @PathVariable("rankNo") int rankNo
+    ) {
+        ResponseEntity<ResponseDto> response = rankService.delete(rankNo);
+        return response;
+    }
     
     @PutMapping("/{rankNo}")
     public ResponseEntity<ResponseDto> put (

@@ -38,14 +38,17 @@ public class DepartmentController {
     }
 
     @GetMapping("/")
-    public ResponseEntity<? super GetDepartmentResponseDto> getList() {
+    public ResponseEntity<? super GetDepartmentResponseDto> getList(
+
+    ) {
         ResponseEntity<? super GetDepartmentResponseDto> response = departmentService.getList();
         return response;
     }
 
     @DeleteMapping("/{departmentNo}")
     public ResponseEntity<ResponseDto> delete (
-        @PathVariable("departmentNo") int departmentNo) {
+        @PathVariable("departmentNo") int departmentNo
+    ) {
         ResponseEntity<ResponseDto> response = departmentService.delete(departmentNo);
         return response;
     }

@@ -1,6 +1,8 @@
 package com.example.back.entity;
 
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 import com.example.back.common.util.ChangeDateFormatUtil;
@@ -30,6 +32,7 @@ public class MemberEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer memberNo;
+
     private String memberId;
     private String memberPw;
     private String memberName;
@@ -39,6 +42,14 @@ public class MemberEntity {
     private String memberImage;
     private String memberRegDate;
     private String memberRole;
+
+    // @ManyToOne
+    // @JoinColumn(name = "member_dep_no")
+    // private DepartmentEntity department;
+
+    // @ManyToOne
+    // @JoinColumn(name = "member_rank_no")
+    // private RankEntity rank;
 
     public MemberEntity(AuthSignInRequestDto dto) {
         this.memberId = dto.getMemberId();
@@ -57,18 +68,15 @@ public class MemberEntity {
         this.memberRole = "ROLE_USER";
     }
 
-    public MemberEntity(PutMemberRequestDto dto) {
+    public void update(PutMemberRequestDto dto) {
         this.memberName = dto.getMemberName();
         this.memberDepNo = dto.getMemberDepNo();
         this.memberRankNo = dto.getMemberRankNo();
         this.memberEmail = dto.getMemberEmail();
         this.memberImage = dto.getMemberImage();
-        this.memberRegDate = ChangeDateFormatUtil.getCurrentDatetiem();
-        this.memberRole = "ROLE_USER";
     }
 
     public MemberEntity(PostStockMemberAddRequestDto dto) {
         this.memberName = dto.getMemberName();
     }
-
 }
