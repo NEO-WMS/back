@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 
 @Entity
-@Table(name="rank")
+@Table(name="`rank`")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -35,7 +35,7 @@ public class RankEntity {
         this.rankName = dto.getRankName();
     }
 
-    public RankEntity(PutRankRequestDto dto) {
+    public void update(PutRankRequestDto dto) {
         this.rankCode = dto.getRankCode();
         this.rankName = dto.getRankName();
     }

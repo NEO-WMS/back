@@ -1,16 +1,16 @@
 package com.example.back.common.object;
 
 import java.util.List;
+import java.util.ArrayList;
 
 import com.example.back.entity.DepartmentEntity;
-
-import java.util.ArrayList;
 
 import lombok.Getter;
 
 @Getter
 
 public class DepartmentListItem {
+    
     private Integer departmentNo;
     private String departmentCode;
     private String departmentName;

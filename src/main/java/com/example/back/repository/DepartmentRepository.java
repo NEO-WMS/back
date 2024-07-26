@@ -18,10 +18,9 @@ public interface DepartmentRepository extends JpaRepository<DepartmentEntity, In
     List<DepartmentEntity> findByOrderByDepartmentNoDesc();
 
     @Query("SELECT d FROM DepartmentEntity d WHERE "
-        + "(d.departmentCode = :searchTerm OR :searchTerm IS NULL) OR "
-        + "(d.departmentName = :searchTerm OR :searchTerm IS NULL) "
+        + "(d.departmentCode = :search OR :search IS NULL) OR "
+        + "(d.departmentName = :search OR :search IS NULL) "
         + "ORDER BY d.departmentNo DESC")
-    List<DepartmentEntity> search(
-    @Param("searchTerm") String searchWord);
+    List<DepartmentEntity> search(@Param("search") String search);
     
 }

@@ -61,9 +61,9 @@ public class DepartmentController {
 
     @GetMapping("/search")
     public ResponseEntity<? super GetDepartmentSearchResponseDto> search(
-        @RequestParam("searchWord") String searchWord
+        @RequestParam("search") String search
     ) {
-        ResponseEntity<? super GetDepartmentSearchResponseDto> response = departmentService.search(searchWord);
+        ResponseEntity<? super GetDepartmentSearchResponseDto> response = departmentService.search(search);
         return response;
     }
 }
