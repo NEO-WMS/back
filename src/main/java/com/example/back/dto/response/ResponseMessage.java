@@ -11,10 +11,13 @@ public interface ResponseMessage {
     String NO_EXIST_RACK = "No Exist Rack.";
     String NO_EXIST_RANK = "No Exist Rank.";
     String NO_EXIST_CELL = "No Exist Cell.";
+    String NO_EXIST_BOARD = "No Exist Board.";
     String NO_EXIST_CLIENT = "No Exist Client.";
     String NO_EXIST_MEMBER = "No Exist Member.";
     String NO_EXIST_WAREHOUSE = "No Exist Warehouse.";
     String NO_EXIST_DEPARTMENT = "No Exist Department.";
+
+    String DUPLICATED_ID = "Duplicated Id";
     
     String SIGN_IN_FAILED = "Sign in Failed.";
     String AUTHORIZATION_FAILED = "Authorization Failed.";

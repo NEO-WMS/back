@@ -48,7 +48,12 @@ public class ResponseDto {
         ResponseDto responseBody = new ResponseDto(ResponseCode.NO_EXIST_CELL, ResponseMessage.NO_EXIST_CELL);
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(responseBody);
     }
-
+    
+    public static ResponseEntity<ResponseDto> noExistBoard() {
+        ResponseDto responseBody = new ResponseDto(ResponseCode.NO_EXIST_BOARD, ResponseMessage.NO_EXIST_BOARD);
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(responseBody);
+    }
+    
     public static ResponseEntity<ResponseDto> noExistClient() {
         ResponseDto responseBody = new ResponseDto(ResponseCode.NO_EXIST_CLIENT, ResponseMessage.NO_EXIST_CLIENT);
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(responseBody);
@@ -67,6 +72,11 @@ public class ResponseDto {
     public static ResponseEntity<ResponseDto> noExistDepartment() {
         ResponseDto responseBody = new ResponseDto(ResponseCode.NO_EXIST_DEPARTMENT, ResponseMessage.NO_EXIST_DEPARTMENT);
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(responseBody);
+    }
+
+    public static ResponseEntity<ResponseDto> duplicatedId() {
+        ResponseDto responseBody = new ResponseDto(ResponseCode.DUPLICATED_ID, ResponseMessage.DUPLICATED_ID);
+        return ResponseEntity.status(HttpStatus.OK).body(responseBody);
     }
 
     public static ResponseEntity<ResponseDto> signInFailed() {

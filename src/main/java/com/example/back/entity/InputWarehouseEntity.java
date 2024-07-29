@@ -24,7 +24,7 @@ public class InputWarehouseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer inputWarehouseNo;
     private Integer inputWarehouseMemberNo;
-    private Integer inputWarehousePuchaseSheetNo;
+    private Integer inputWarehousePurchaseSheetNo;
     private String inputWarehouseStatus;
 
 }
