@@ -11,12 +11,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.back.dto.requset.department.PostDepartmentCreateRequestDto;
-import com.example.back.dto.requset.department.PutDepartmentRequestDto;
 import com.example.back.dto.response.ResponseDto;
-import com.example.back.dto.response.department.GetDepartmentResponseDto;
-import com.example.back.dto.response.department.GetDepartmentSearchResponseDto;
 import com.example.back.service.DepartmentService;
+import com.example.back.dto.requset.department.PutDepartmentRequestDto;
+import com.example.back.dto.response.department.GetDepartmentResponseDto;
+import com.example.back.dto.requset.department.PostDepartmentCreateRequestDto;
+import com.example.back.dto.response.department.GetDepartmentSearchResponseDto;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

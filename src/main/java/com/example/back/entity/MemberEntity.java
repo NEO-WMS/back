@@ -12,6 +12,7 @@ import com.example.back.dto.requset.member.PutMemberRequestDto;
 import com.example.back.dto.requset.member.PostMemberCreateRequestDto;
 import com.example.back.dto.requset.stock.PostStockMemberAddRequestDto;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -27,31 +28,47 @@ import lombok.AllArgsConstructor;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-
 public class MemberEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer memberNo;
 
+    @Column(name = "member_id")
     private String memberId;
+
+    @Column(name = "member_pw")
     private String memberPw;
+
+    @Column(name = "member_name")
     private String memberName;
+
+    @Column(name = "member_dep_no")
     private Integer memberDepNo;
+
+    @Column(name = "member_rank_no")
     private Integer memberRankNo;
+
+    @Column(name = "member_email")
     private String memberEmail;
+
+    @Column(name = "member_image")
     private String memberImage;
+
+    @Column(name = "member_reg_date")
     private String memberRegDate;
+
+    @Column(name = "member_role")
     private String memberRole;
 
     @ManyToOne
-    @JoinColumn(name = "department_no")
+    @JoinColumn(name = "member_dep_no", insertable = false, updatable = false)
     private DepartmentEntity department;
 
     @ManyToOne
-    @JoinColumn(name = "rank_no")
+    @JoinColumn(name = "member_rank_no", insertable = false, updatable = false)
     private RankEntity rank;
-
+    
     public MemberEntity(AuthSignInRequestDto dto) {
         this.memberId = dto.getMemberId();
         this.memberPw = dto.getMemberPw();
