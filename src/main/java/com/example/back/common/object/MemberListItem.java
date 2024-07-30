@@ -1,22 +1,22 @@
 package com.example.back.common.object;
 
 import java.util.List;
+import java.util.ArrayList;
 
 import com.example.back.entity.MemberEntity;
-
-import java.util.ArrayList;
 
 import lombok.Getter;
 
 @Getter
-
 public class MemberListItem {
 
     private Integer memberNo;
     private String memberId;
     private String memberName;
     private Integer memberDepNo;
+    private String departmentName;
     private Integer memberRankNo;
+    private String rankName;
     private String memberEmail;
     private String memberImage;
     private String memberRegDate;
@@ -26,7 +26,9 @@ public class MemberListItem {
         this.memberId = memberEntity.getMemberId();
         this.memberName = memberEntity.getMemberName();
         this.memberDepNo = memberEntity.getMemberDepNo();
+        this.departmentName = memberEntity.getDepartment().getDepartmentName();
         this.memberRankNo = memberEntity.getMemberRankNo();
+        this.rankName = memberEntity.getRank().getRankName();
         this.memberEmail = memberEntity.getMemberEmail();
         this.memberImage = memberEntity.getMemberImage();
         this.memberRegDate = memberEntity.getMemberRegDate();
@@ -42,3 +44,4 @@ public class MemberListItem {
         return memberList;
     }
 }
+

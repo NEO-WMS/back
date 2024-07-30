@@ -57,7 +57,7 @@ public class ClientEntity {
         this.clientBusiness = dto.getClientBusiness();
     }
 
-    public ClientEntity(PutClientRequestDto dto) {
+    public void update(PutClientRequestDto dto) {
         this.clientCode = dto.getClientCode();
         this.clientCategory = dto.getClientCategory();
         this.clientName = dto.getClientName();
