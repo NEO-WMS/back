@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import com.example.back.common.object.ClientListItem;
 import com.example.back.dto.requset.client.PostClientCreateRequestDto;
 import com.example.back.dto.requset.client.PutClientRequestDto;
 import com.example.back.dto.response.ResponseDto;
@@ -89,13 +90,15 @@ public class ClientServiceImplimentation implements ClientService {
     public ResponseEntity<? super GetClientSearchResponseDto> search(String search) {
 
         try {
+            List<ClientEntity> clientEntities;
             if (search == null || search.trim().isEmpty()) {
-                List<ClientEntity> clientEntities = clientRepositoy.findByOrderByClientNoDesc();
-                return GetClientSearchResponseDto.success(clientEntities);
+                clientEntities = clientRepositoy.findByOrderByClientNoDesc();
+            } else {
+                clientEntities = clientRepositoy.search(search);
             }
 
-            List<ClientEntity> clientEntities = clientRepositoy.search(search);
-            return GetClientSearchResponseDto.success(clientEntities);
+            List<ClientListItem> clientListItems = ClientListItem.getList(clientEntities);
+            return GetClientSearchResponseDto.success(clientListItems);
 
         } catch (Exception exception) {
             exception.printStackTrace();

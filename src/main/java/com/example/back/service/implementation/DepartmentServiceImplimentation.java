@@ -22,7 +22,6 @@ import lombok.RequiredArgsConstructor;
 
 public class DepartmentServiceImplimentation implements DepartmentService {
     
-
     @Autowired
     private final DepartmentRepository departmentRepository;
 

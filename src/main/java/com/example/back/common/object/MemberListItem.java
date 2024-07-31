@@ -13,9 +13,7 @@ public class MemberListItem {
     private Integer memberNo;
     private String memberId;
     private String memberName;
-    private Integer memberDepNo;
     private String departmentName;
-    private Integer memberRankNo;
     private String rankName;
     private String memberEmail;
     private String memberImage;
@@ -25,9 +23,7 @@ public class MemberListItem {
         this.memberNo = memberEntity.getMemberNo();
         this.memberId = memberEntity.getMemberId();
         this.memberName = memberEntity.getMemberName();
-        this.memberDepNo = memberEntity.getMemberDepNo();
         this.departmentName = memberEntity.getDepartment().getDepartmentName();
-        this.memberRankNo = memberEntity.getMemberRankNo();
         this.rankName = memberEntity.getRank().getRankName();
         this.memberEmail = memberEntity.getMemberEmail();
         this.memberImage = memberEntity.getMemberImage();

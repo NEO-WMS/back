@@ -43,11 +43,13 @@ public class MemberEntity {
     @Column(name = "member_name")
     private String memberName;
 
-    @Column(name = "member_dep_no")
-    private Integer memberDepNo;
+    @ManyToOne
+    @JoinColumn(name = "member_dep_no")
+    private DepartmentEntity department;
 
-    @Column(name = "member_rank_no")
-    private Integer memberRankNo;
+    @ManyToOne
+    @JoinColumn(name = "member_rank_no")
+    private RankEntity rank;
 
     @Column(name = "member_email")
     private String memberEmail;
@@ -61,14 +63,6 @@ public class MemberEntity {
     @Column(name = "member_role")
     private String memberRole;
 
-    @ManyToOne
-    @JoinColumn(name = "member_dep_no", insertable = false, updatable = false)
-    private DepartmentEntity department;
-
-    @ManyToOne
-    @JoinColumn(name = "member_rank_no", insertable = false, updatable = false)
-    private RankEntity rank;
-    
     public MemberEntity(AuthSignInRequestDto dto) {
         this.memberId = dto.getMemberId();
         this.memberPw = dto.getMemberPw();
@@ -78,8 +72,10 @@ public class MemberEntity {
         this.memberId = dto.getMemberId();
         this.memberPw = dto.getMemberPw();
         this.memberName = dto.getMemberName();
-        this.memberDepNo = dto.getMemberDepNo();
-        this.memberRankNo = dto.getMemberRankNo();
+        this.department = new DepartmentEntity();
+        this.department.setDepartmentNo(dto.getMemberDepNo());
+        this.rank = new RankEntity();
+        this.rank.setRankNo(dto.getMemberRankNo());
         this.memberEmail = dto.getMemberEmail();
         this.memberImage = dto.getMemberImage();
         this.memberRegDate = ChangeDateFormatUtil.getCurrentDatetiem();
@@ -88,8 +84,8 @@ public class MemberEntity {
 
     public void update(PutMemberRequestDto dto) {
         this.memberName = dto.getMemberName();
-        this.memberDepNo = dto.getMemberDepNo();
-        this.memberRankNo = dto.getMemberRankNo();
+        this.department.setDepartmentNo(dto.getMemberDepNo());
+        this.rank.setRankNo(dto.getMemberRankNo());
         this.memberEmail = dto.getMemberEmail();
         this.memberImage = dto.getMemberImage();
     }
