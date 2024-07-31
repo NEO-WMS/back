@@ -17,12 +17,12 @@ public class GetmemberSearchResponseDto extends ResponseDto {
     
     private List<MemberListItem> memberListItem;
 
-    private GetmemberSearchResponseDto(List<MemberListItem> memberListItem) {
+    private GetmemberSearchResponseDto(List<MemberListItem> memberListItem) throws Exception {
         super(ResponseCode.SUCCESS, ResponseMessage.SUCCESS);
         this.memberListItem = memberListItem;
     }
 
-    public static ResponseEntity<GetmemberSearchResponseDto> success(List<MemberListItem> memberListItem) {
+    public static ResponseEntity<GetmemberSearchResponseDto> success(List<MemberListItem> memberListItem) throws Exception {
         GetmemberSearchResponseDto responseBody = new GetmemberSearchResponseDto(memberListItem);
         return ResponseEntity.status(HttpStatus.OK).body(responseBody); 
     }

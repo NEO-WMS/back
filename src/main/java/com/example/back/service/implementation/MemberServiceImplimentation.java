@@ -31,6 +31,7 @@ public class MemberServiceImplimentation implements MemberService {
 
     @Override
     public ResponseEntity<ResponseDto> create(PostMemberCreateRequestDto dto) {
+        
         try {
             String memberId = dto.getMemberId();
             String memberPw = dto.getMemberPw();

@@ -6,6 +6,7 @@ import jakarta.persistence.Table;
 import com.example.back.dto.requset.client.PostClientCreateRequestDto;
 import com.example.back.dto.requset.client.PutClientRequestDto;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -26,19 +27,46 @@ public class ClientEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer clientNo;    
+    @Column(name = "client_no")
+    private Integer clientNo;
+
+    @Column(name = "client_code")
     private String clientCode;
+
+    @Column(name = "client_category")
     private Integer clientCategory;
+
+    @Column(name = "client_name")
     private String clientName;
+
+    @Column(name = "client_owner")
     private String clientOwner;
+
+    @Column(name = "client_tel")
     private String clientTel;
+
+    @Column(name = "client_fax")
     private String clientFax;
+
+    @Column(name = "client_bank")
     private String clientBank;
+
+    @Column(name = "client_account")
     private String clientAccount;
+
+    @Column(name = "client_zipcode")
     private String clientZipcode;
+
+    @Column(name = "client_address1")
     private String clientAddress1;
+
+    @Column(name = "client_address2")
     private String clientAddress2;
+
+    @Column(name = "client_email")
     private String clientEmail;
+
+    @Column(name = "client_business")
     private String clientBusiness;
 
     public ClientEntity(PostClientCreateRequestDto dto) {

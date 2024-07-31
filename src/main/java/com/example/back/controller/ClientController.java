@@ -70,7 +70,7 @@ public class ClientController {
         return response;
     }
 
-    @GetMapping
+    @GetMapping("/order")
     public ResponseEntity<? super GetClientResponseDto> getListByOrderCategory  (
 
     ) {
@@ -78,7 +78,7 @@ public class ClientController {
         return response;
     }
 
-    @GetMapping
+    @GetMapping("/ordering")
     public ResponseEntity<? super GetClientResponseDto> getListByOrderingCategory  (
 
     ) {

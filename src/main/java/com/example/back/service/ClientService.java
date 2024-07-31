@@ -16,8 +16,6 @@ public interface ClientService {
 
     ResponseEntity<? super GetClientResponseDto> getList();
     ResponseEntity<? super GetClientSearchResponseDto> search(String search);
-    
-    
     ResponseEntity<? super GetClientResponseDto> getListByOrderCategory(int clientCategory);
     ResponseEntity<? super GetClientResponseDto> getListByOrderingCategory(int clientCategory);
 }
