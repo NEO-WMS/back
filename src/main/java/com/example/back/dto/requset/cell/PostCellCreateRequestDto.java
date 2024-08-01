@@ -1,21 +1,20 @@
-package com.example.back.dto.requset.warehouse;
+package com.example.back.dto.requset.cell;
 
 import jakarta.validation.constraints.NotBlank;
-
 import lombok.Getter;
-import lombok.Setter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Getter
 @Setter
 @NoArgsConstructor
 
-public class PutWarehouseAreaRackCellRequestDto {
+public class PostCellCreateRequestDto {
     
     @NotBlank
     private String cellCode;
-
+    
     @NotBlank
     private String cellName;
-    
+
 }

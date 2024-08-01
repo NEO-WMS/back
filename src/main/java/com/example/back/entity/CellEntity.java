@@ -1,10 +1,12 @@
 package com.example.back.entity;
 
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
-import com.example.back.dto.requset.warehouse.PostWarehouseAreaRackCellCreateRequestDto;
-import com.example.back.dto.requset.warehouse.PutWarehouseAreaRackCellRequestDto;
+import com.example.back.dto.requset.cell.PostCellCreateRequestDto;
+import com.example.back.dto.requset.cell.PutCellRequestDto;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -27,16 +29,19 @@ public class CellEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer cellNo;
-    private Integer cellRackNo;
     private String cellCode;
     private String cellName;
 
-    public CellEntity (PostWarehouseAreaRackCellCreateRequestDto dto) {
+    @ManyToOne
+    @JoinColumn(name = "cell_rack_no")
+    private RackEntity rack;
+
+    public CellEntity (PostCellCreateRequestDto dto) {
         this.cellCode = dto.getCellCode();
         this.cellName = dto.getCellName();
     }
 
-    public CellEntity (PutWarehouseAreaRackCellRequestDto dto) {
+    public void update (PutCellRequestDto dto) {
         this.cellCode = dto.getCellCode();
         this.cellName = dto.getCellName();
     }

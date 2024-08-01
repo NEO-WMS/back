@@ -12,7 +12,6 @@ import com.example.back.dto.requset.member.PutMemberRequestDto;
 import com.example.back.dto.response.ResponseDto;
 import com.example.back.dto.response.member.GetMemberListResponseDto;
 import com.example.back.dto.response.member.GetmemberSearchResponseDto;
-import com.example.back.common.object.MemberListItem;
 import com.example.back.entity.MemberEntity;
 import com.example.back.repository.MemberRepository;
 import com.example.back.service.MemberService;

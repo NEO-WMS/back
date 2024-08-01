@@ -1,11 +1,13 @@
 package com.example.back.entity;
 
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
+import com.example.back.dto.requset.area.PostAreaCreateRequestDto;
+import com.example.back.dto.requset.area.PutAreaRequestDto;
 import com.example.back.dto.requset.stock.PostStockWarehouseAddRequestDto;
-import com.example.back.dto.requset.warehouse.PostWarehouseAreaCreateRequestDto;
-import com.example.back.dto.requset.warehouse.PutWarehouseAreaRequestDto;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -30,14 +32,17 @@ public class AreaEntity {
     private Integer areaNo;
     private String areaCode;
     private String areaName;
-    private Integer areaWareNo;
 
-    public AreaEntity (PostWarehouseAreaCreateRequestDto dto) {
+    @ManyToOne
+    @JoinColumn(name = "area_ware_no")
+    private WarehouseEntity warehouse;
+
+    public AreaEntity (PostAreaCreateRequestDto dto) {
         this.areaCode = dto.getAreaCode();
         this.areaName = dto.getAreaName();
     }
 
-    public AreaEntity (PutWarehouseAreaRequestDto dto) {
+    public void update (PutAreaRequestDto dto) {
         this.areaCode = dto.getAreaCode();
         this.areaName = dto.getAreaName();
     }
