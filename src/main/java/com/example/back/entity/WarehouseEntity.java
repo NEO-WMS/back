@@ -4,7 +4,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 import com.example.back.dto.requset.stock.PostStockWarehouseAddRequestDto;
-import com.example.back.dto.requset.warehouse.PostWarehouseCrateRequestDto;
+import com.example.back.dto.requset.warehouse.PostWarehouseCreateRequestDto;
 import com.example.back.dto.requset.warehouse.PutWarehouseRequestDto;
 
 import jakarta.persistence.Entity;
@@ -31,12 +31,12 @@ public class WarehouseEntity {
     private String warehouseCode;
     private String warehouseName;
 
-    public WarehouseEntity (PostWarehouseCrateRequestDto dto) {
+    public WarehouseEntity (PostWarehouseCreateRequestDto dto) {
         this.warehouseCode = dto.getWarehouseCode();
         this.warehouseName = dto.getWarehouseName();
     }
 
-    public WarehouseEntity (PutWarehouseRequestDto dto) {
+    public void update (PutWarehouseRequestDto dto) {
         this.warehouseCode = dto.getWarehouseCode();
         this.warehouseName = dto.getWarehouseName();
     }

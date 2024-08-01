@@ -1,21 +1,20 @@
-package com.example.back.dto.requset.warehouse;
+package com.example.back.dto.requset.area;
 
 import jakarta.validation.constraints.NotBlank;
-
 import lombok.Getter;
-import lombok.Setter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Getter
 @Setter
 @NoArgsConstructor
 
-public class PutWarehouseAreaRackRequestDto {
+public class PostAreaCreateRequestDto {
     
     @NotBlank
-    private String rackCode;
-
+    private String areaCode;
+    
     @NotBlank
-    private String rackName;
+    private String areaName;
 
 }
