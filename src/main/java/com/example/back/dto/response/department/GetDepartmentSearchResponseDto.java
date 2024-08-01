@@ -25,6 +25,7 @@ public class GetDepartmentSearchResponseDto extends ResponseDto {
     }
 
     public static ResponseEntity<GetDepartmentSearchResponseDto> success(List<DepartmentEntity> departmentEntities) throws Exception {
+        
         GetDepartmentSearchResponseDto responseBody = new GetDepartmentSearchResponseDto(departmentEntities);
         return ResponseEntity.status(HttpStatus.OK).body(responseBody);
     }

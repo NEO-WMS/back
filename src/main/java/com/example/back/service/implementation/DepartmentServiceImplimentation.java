@@ -2,14 +2,13 @@ package com.example.back.service.implementation;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.example.back.dto.requset.department.PostDepartmentCreateRequestDto;
 import com.example.back.dto.requset.department.PutDepartmentRequestDto;
 import com.example.back.dto.response.ResponseDto;
-import com.example.back.dto.response.department.GetDepartmentResponseDto;
+import com.example.back.dto.response.department.GetDepartmentListResponseDto;
 import com.example.back.dto.response.department.GetDepartmentSearchResponseDto;
 import com.example.back.entity.DepartmentEntity;
 import com.example.back.repository.DepartmentRepository;
@@ -22,7 +21,6 @@ import lombok.RequiredArgsConstructor;
 
 public class DepartmentServiceImplimentation implements DepartmentService {
     
-    @Autowired
     private final DepartmentRepository departmentRepository;
 
     @Override
@@ -40,11 +38,11 @@ public class DepartmentServiceImplimentation implements DepartmentService {
     }
 
     @Override
-    public ResponseEntity<? super GetDepartmentResponseDto> getList() {
+    public ResponseEntity<? super GetDepartmentListResponseDto> getList() {
 
         try {
             List<DepartmentEntity> departmentEntities = departmentRepository.findByOrderByDepartmentNoDesc();
-            return GetDepartmentResponseDto.success(departmentEntities);
+            return GetDepartmentListResponseDto.success(departmentEntities);
             
         } catch (Exception exception) {
             exception.printStackTrace();

@@ -15,17 +15,19 @@ import lombok.Getter;
 
 @Getter
 
-public class GetLotResponseDto extends ResponseDto {
+public class GetLotListResponseDto extends ResponseDto {
     
     private List<LotListItem> lotList;
     
-    private GetLotResponseDto(List<LotEntity> lotEntities) throws Exception {
+    private GetLotListResponseDto(List<LotEntity> lotEntities) throws Exception {
+
         super(ResponseCode.SUCCESS, ResponseMessage.SUCCESS);
         this.lotList = LotListItem.getList(lotEntities);
     }
 
-    public static ResponseEntity<GetLotResponseDto> success(List<LotEntity> lotEntities) throws Exception {
-        GetLotResponseDto responseBody = new GetLotResponseDto(lotEntities);
+    public static ResponseEntity<GetLotListResponseDto> success(List<LotEntity> lotEntities) throws Exception {
+        
+        GetLotListResponseDto responseBody = new GetLotListResponseDto(lotEntities);
         return ResponseEntity.status(HttpStatus.OK).body(responseBody);
     }
 }

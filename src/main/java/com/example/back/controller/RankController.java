@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.back.dto.requset.rank.PostRankCreateRequestDto;
 import com.example.back.dto.requset.rank.PutRankRequestDto;
 import com.example.back.dto.response.ResponseDto;
-import com.example.back.dto.response.rank.GetRankResponseDto;
+import com.example.back.dto.response.rank.GetRankListResponseDto;
 import com.example.back.dto.response.rank.GetRankSearchResponseDto;
 import com.example.back.service.RankService;
 
@@ -38,10 +38,10 @@ public class RankController {
     }
 
     @GetMapping("/")
-    public ResponseEntity<? super GetRankResponseDto> getList(
+    public ResponseEntity<? super GetRankListResponseDto> getList(
 
     ) {
-        ResponseEntity<? super GetRankResponseDto> response = rankService.getList();
+        ResponseEntity<? super GetRankListResponseDto> response = rankService.getList();
         return response;
     }
 

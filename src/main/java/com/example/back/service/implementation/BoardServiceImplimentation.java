@@ -2,13 +2,13 @@ package com.example.back.service.implementation;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.example.back.dto.requset.board.PostBoardCreateRequestDto;
 import com.example.back.dto.requset.board.PutBoardRequestDto;
 import com.example.back.dto.response.ResponseDto;
+import com.example.back.dto.response.board.GetBoardListResponseDto;
 import com.example.back.dto.response.board.GetBoardResponseDto;
 import com.example.back.entity.BoardEntity;
 import com.example.back.repository.BoardRepository;
@@ -21,7 +21,6 @@ import lombok.RequiredArgsConstructor;
 
 public class BoardServiceImplimentation implements BoardService {
     
-    @Autowired
     private final BoardRepository boardRepository;
 
     @Override
@@ -39,11 +38,11 @@ public class BoardServiceImplimentation implements BoardService {
     }
 
     @Override
-    public ResponseEntity<? super GetBoardResponseDto> getList() {
+    public ResponseEntity<? super GetBoardListResponseDto> getList() {
 
         try {
             List<BoardEntity> boardEntities = boardRepository.findByOrderByBoardNoDesc();
-            return GetBoardResponseDto.success(boardEntities);
+            return GetBoardListResponseDto.success(boardEntities);
             
         } catch (Exception exception) {
             exception.printStackTrace();
@@ -82,6 +81,21 @@ public class BoardServiceImplimentation implements BoardService {
             return ResponseDto.databaseError();
         }
         return ResponseDto.success();
+    }
+
+    @Override
+    public ResponseEntity<? super GetBoardResponseDto> getBoard(int boardNo) {
+
+        try {
+            BoardEntity boardEntity = boardRepository.findByBoardNo(boardNo);
+            if (boardEntity == null) return ResponseDto.noExistBoard();
+
+            return GetBoardResponseDto.success(boardEntity);
+            
+        } catch (Exception exception) {
+            exception.printStackTrace();
+            return ResponseDto.databaseError();
+        }
     }
 
 }

@@ -1,13 +1,11 @@
 package com.example.back.common.object;
 
 import java.util.List;
+import java.util.ArrayList;
 
 import com.example.back.entity.BoardEntity;
 
-import java.util.ArrayList;
-
 import lombok.Getter;
-
 
 @Getter
 
@@ -25,9 +23,9 @@ public class BoardListItem {
         this.boardDate = boardEntity.getBoardDate();
     }
 
-    public static List<BoardListItem> getList (List<BoardEntity> boardEntities) throws Exception {
-        List<BoardListItem> boardList = new ArrayList<>();
+    public static List<BoardListItem> getList(List<BoardEntity> boardEntities) throws Exception {
 
+        List<BoardListItem> boardList = new ArrayList<>();
         for (BoardEntity boardEntity: boardEntities) {
             BoardListItem boardListItem = new BoardListItem(boardEntity);
             boardList.add(boardListItem);

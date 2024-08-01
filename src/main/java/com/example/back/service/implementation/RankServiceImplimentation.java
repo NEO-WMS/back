@@ -2,14 +2,13 @@ package com.example.back.service.implementation;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.example.back.dto.requset.rank.PostRankCreateRequestDto;
 import com.example.back.dto.requset.rank.PutRankRequestDto;
 import com.example.back.dto.response.ResponseDto;
-import com.example.back.dto.response.rank.GetRankResponseDto;
+import com.example.back.dto.response.rank.GetRankListResponseDto;
 import com.example.back.dto.response.rank.GetRankSearchResponseDto;
 import com.example.back.entity.RankEntity;
 import com.example.back.repository.RankRepositoy;
@@ -22,7 +21,6 @@ import lombok.RequiredArgsConstructor;
 
 public class RankServiceImplimentation implements RankService {
     
-    @Autowired
     private final RankRepositoy rankRepositoy;
 
     @Override
@@ -41,11 +39,11 @@ public class RankServiceImplimentation implements RankService {
     }
 
     @Override
-    public ResponseEntity<? super GetRankResponseDto> getList() {
+    public ResponseEntity<? super GetRankListResponseDto> getList() {
         
         try {
             List<RankEntity> rankEntities = rankRepositoy.findByOrderByRankNoDesc();
-            return GetRankResponseDto.success(rankEntities);
+            return GetRankListResponseDto.success(rankEntities);
 
         } catch (Exception exception) {
             exception.printStackTrace();

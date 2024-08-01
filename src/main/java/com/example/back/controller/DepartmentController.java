@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.back.dto.response.ResponseDto;
 import com.example.back.service.DepartmentService;
 import com.example.back.dto.requset.department.PutDepartmentRequestDto;
-import com.example.back.dto.response.department.GetDepartmentResponseDto;
+import com.example.back.dto.response.department.GetDepartmentListResponseDto;
 import com.example.back.dto.requset.department.PostDepartmentCreateRequestDto;
 import com.example.back.dto.response.department.GetDepartmentSearchResponseDto;
 
@@ -38,10 +38,10 @@ public class DepartmentController {
     }
 
     @GetMapping("/")
-    public ResponseEntity<? super GetDepartmentResponseDto> getList(
+    public ResponseEntity<? super GetDepartmentListResponseDto> getList(
 
     ) {
-        ResponseEntity<? super GetDepartmentResponseDto> response = departmentService.getList();
+        ResponseEntity<? super GetDepartmentListResponseDto> response = departmentService.getList();
         return response;
     }
 

@@ -8,6 +8,7 @@ import com.example.back.entity.MemberEntity;
 import lombok.Getter;
 
 @Getter
+
 public class MemberListItem {
 
     private Integer memberNo;
@@ -20,6 +21,7 @@ public class MemberListItem {
     private String memberRegDate;
 
     private MemberListItem(MemberEntity memberEntity) throws Exception {
+
         this.memberNo = memberEntity.getMemberNo();
         this.memberId = memberEntity.getMemberId();
         this.memberName = memberEntity.getMemberName();
@@ -31,12 +33,13 @@ public class MemberListItem {
     }
 
     public static List<MemberListItem> getList(List<MemberEntity> memberEntities) throws Exception {
-        List<MemberListItem> memberList = new ArrayList<>();
 
+        List<MemberListItem> memberList = new ArrayList<>();
         for (MemberEntity memberEntity: memberEntities) {
             MemberListItem memberListItem = new MemberListItem(memberEntity);
             memberList.add(memberListItem);
         }
+        
         return memberList;
     }
 }

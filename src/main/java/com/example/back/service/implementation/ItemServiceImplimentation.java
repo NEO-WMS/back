@@ -2,14 +2,13 @@ package com.example.back.service.implementation;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.example.back.dto.requset.item.PostItemCreateRequestDto;
 import com.example.back.dto.requset.item.PutItemRequestDto;
 import com.example.back.dto.response.ResponseDto;
-import com.example.back.dto.response.item.GetItemResponseDto;
+import com.example.back.dto.response.item.GetItemListResponseDto;
 import com.example.back.dto.response.item.GetItemSearchResponseDto;
 import com.example.back.entity.ItemEntity;
 import com.example.back.repository.ItemRepositoy;
@@ -22,7 +21,6 @@ import lombok.RequiredArgsConstructor;
 
 public class ItemServiceImplimentation implements ItemService {
     
-    @Autowired
     private final ItemRepositoy itemRepositoy;
 
     @Override
@@ -40,11 +38,11 @@ public class ItemServiceImplimentation implements ItemService {
     }
 
     @Override
-    public ResponseEntity<? super GetItemResponseDto> getList() {
+    public ResponseEntity<? super GetItemListResponseDto> getList() {
 
         try {
             List<ItemEntity> itemEntities = itemRepositoy.findByOrderByItemNoDesc();
-            return GetItemResponseDto.success(itemEntities);
+            return GetItemListResponseDto.success(itemEntities);
             
         } catch (Exception exception) {
             exception.printStackTrace();

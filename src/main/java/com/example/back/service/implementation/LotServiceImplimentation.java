@@ -2,13 +2,11 @@ package com.example.back.service.implementation;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import com.example.back.common.object.LotListItem;
 import com.example.back.dto.response.ResponseDto;
-import com.example.back.dto.response.lot.GetLotResponseDto;
+import com.example.back.dto.response.lot.GetLotListResponseDto;
 import com.example.back.dto.response.lot.GetLotSearchResponseDto;
 import com.example.back.entity.LotEntity;
 import com.example.back.repository.LotRepositoy;
@@ -21,15 +19,14 @@ import lombok.RequiredArgsConstructor;
 
 public class LotServiceImplimentation implements LotService {
     
-    @Autowired
     private final LotRepositoy lotRepositoy;
 
     @Override
-    public ResponseEntity<? super GetLotResponseDto> getList() {
+    public ResponseEntity<? super GetLotListResponseDto> getList() {
 
         try {
             List<LotEntity> lotEntities = lotRepositoy.findByOrderByLotNoDesc();
-            return GetLotResponseDto.success(lotEntities);
+            return GetLotListResponseDto.success(lotEntities);
             
         } catch (Exception exception) {
             exception.printStackTrace();
@@ -57,14 +54,13 @@ public class LotServiceImplimentation implements LotService {
     public ResponseEntity<? super GetLotSearchResponseDto> search (String search) {
 
         try {
-            List<LotEntity> lotEntities;
+            
             if (search == null || search.trim().isEmpty()) {
-                lotEntities = lotRepositoy.findByOrderByLotNoDesc();
-            } else {
-                lotEntities = lotRepositoy.search(search);
+                List<LotEntity> lotEntities = lotRepositoy.findByOrderByLotNoDesc();
+                return GetLotSearchResponseDto.success(lotEntities);
             }
 
-            List<LotListItem> lotListItems = LotListItem.getList(lotEntities);
+            List<LotEntity> lotEntities = lotRepositoy.search(search);
             return GetLotSearchResponseDto.success(lotEntities);
             
         } catch (Exception exception) {

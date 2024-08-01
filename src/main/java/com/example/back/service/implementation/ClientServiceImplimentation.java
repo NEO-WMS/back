@@ -2,15 +2,13 @@ package com.example.back.service.implementation;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import com.example.back.common.object.ClientListItem;
 import com.example.back.dto.requset.client.PostClientCreateRequestDto;
 import com.example.back.dto.requset.client.PutClientRequestDto;
 import com.example.back.dto.response.ResponseDto;
-import com.example.back.dto.response.client.GetClientResponseDto;
+import com.example.back.dto.response.client.GetClientListResponseDto;
 import com.example.back.dto.response.client.GetClientSearchResponseDto;
 import com.example.back.entity.ClientEntity;
 import com.example.back.repository.ClientRepositoy;
@@ -23,7 +21,6 @@ import lombok.RequiredArgsConstructor;
 
 public class ClientServiceImplimentation implements ClientService {
     
-    @Autowired
     private final ClientRepositoy clientRepositoy;
 
     @Override
@@ -41,11 +38,11 @@ public class ClientServiceImplimentation implements ClientService {
     }
 
     @Override
-    public ResponseEntity<? super GetClientResponseDto> getList() {
+    public ResponseEntity<? super GetClientListResponseDto> getList() {
 
         try {
             List<ClientEntity> clientEntities = clientRepositoy.findByOrderByClientNoDesc();
-            return GetClientResponseDto.success(clientEntities);
+            return GetClientListResponseDto.success(clientEntities);
             
         } catch (Exception exception) {
             exception.printStackTrace();
@@ -90,15 +87,14 @@ public class ClientServiceImplimentation implements ClientService {
     public ResponseEntity<? super GetClientSearchResponseDto> search(String search) {
 
         try {
-            List<ClientEntity> clientEntities;
+            
             if (search == null || search.trim().isEmpty()) {
-                clientEntities = clientRepositoy.findByOrderByClientNoDesc();
-            } else {
-                clientEntities = clientRepositoy.search(search);
+                List<ClientEntity> clientEntities = clientRepositoy.findByOrderByClientNoDesc();
+                return GetClientSearchResponseDto.success(clientEntities);
             }
 
-            List<ClientListItem> clientListItems = ClientListItem.getList(clientEntities);
-            return GetClientSearchResponseDto.success(clientListItems);
+            List<ClientEntity> clientEntities = clientRepositoy.search(search);
+            return GetClientSearchResponseDto.success(clientEntities);
 
         } catch (Exception exception) {
             exception.printStackTrace();
@@ -107,11 +103,11 @@ public class ClientServiceImplimentation implements ClientService {
     }
 
     @Override
-    public ResponseEntity<? super GetClientResponseDto> getListByOrderCategory(int clientCategory) {
+    public ResponseEntity<? super GetClientListResponseDto> getListByOrderCategory(int clientCategory) {
         
         try {
             List<ClientEntity> clientEntities = clientRepositoy.findByClientCategory(clientCategory);
-            return GetClientResponseDto.success(clientEntities);
+            return GetClientListResponseDto.success(clientEntities);
             
         } catch (Exception exception) {
             exception.printStackTrace();
@@ -120,11 +116,11 @@ public class ClientServiceImplimentation implements ClientService {
     }
 
     @Override
-    public ResponseEntity<? super GetClientResponseDto> getListByOrderingCategory(int clientCategory) {
+    public ResponseEntity<? super GetClientListResponseDto> getListByOrderingCategory(int clientCategory) {
 
         try {
             List<ClientEntity> clientEntities = clientRepositoy.findByClientCategory(clientCategory);
-            return GetClientResponseDto.success(clientEntities);
+            return GetClientListResponseDto.success(clientEntities);
             
         } catch (Exception exception) {
             exception.printStackTrace();

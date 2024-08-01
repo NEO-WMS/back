@@ -2,7 +2,6 @@ package com.example.back.service.implementation;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -11,7 +10,7 @@ import org.springframework.stereotype.Service;
 import com.example.back.dto.requset.member.PostMemberCreateRequestDto;
 import com.example.back.dto.requset.member.PutMemberRequestDto;
 import com.example.back.dto.response.ResponseDto;
-import com.example.back.dto.response.member.GetMemberResponseDto;
+import com.example.back.dto.response.member.GetMemberListResponseDto;
 import com.example.back.dto.response.member.GetmemberSearchResponseDto;
 import com.example.back.common.object.MemberListItem;
 import com.example.back.entity.MemberEntity;
@@ -24,7 +23,6 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class MemberServiceImplimentation implements MemberService {
 
-    @Autowired
     private final MemberRepository memberRepository;
 
     private PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
@@ -53,12 +51,11 @@ public class MemberServiceImplimentation implements MemberService {
     }
 
     @Override
-    public ResponseEntity<? super GetMemberResponseDto> getList() {
+    public ResponseEntity<? super GetMemberListResponseDto> getList() {
+
         try {
             List<MemberEntity> memberEntities = memberRepository.findByOrderByMemberNoDesc();
-            
-            List<MemberListItem> memberListItems = MemberListItem.getList(memberEntities);
-            return GetMemberResponseDto.success(memberListItems);
+            return GetMemberListResponseDto.success(memberEntities);
 
         } catch (Exception exception) {
             exception.printStackTrace();
@@ -99,16 +96,16 @@ public class MemberServiceImplimentation implements MemberService {
 
     @Override
     public ResponseEntity<? super GetmemberSearchResponseDto> search(String search) {
+
         try {
-            List<MemberEntity> memberEntities;
+            
             if (search == null || search.trim().isEmpty()) {
-                memberEntities = memberRepository.findByOrderByMemberNoDesc();
-            } else {
-                memberEntities = memberRepository.search(search);
+                List<MemberEntity> memberEntities = memberRepository.findByOrderByMemberNoDesc();
+                return GetmemberSearchResponseDto.success(memberEntities); 
             }
 
-            List<MemberListItem> memberListItems = MemberListItem.getList(memberEntities);
-            return GetmemberSearchResponseDto.success(memberListItems);
+            List<MemberEntity> memberEntities = memberRepository.search(search);
+            return GetmemberSearchResponseDto.success(memberEntities);
 
         } catch (Exception exception) {
             exception.printStackTrace();

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.back.dto.requset.board.PostBoardCreateRequestDto;
 import com.example.back.dto.requset.board.PutBoardRequestDto;
 import com.example.back.dto.response.ResponseDto;
+import com.example.back.dto.response.board.GetBoardListResponseDto;
 import com.example.back.dto.response.board.GetBoardResponseDto;
 import com.example.back.service.BoardService;
 
@@ -36,10 +37,10 @@ public class BoardController {
     }
 
     @GetMapping("/")
-    public ResponseEntity<? super GetBoardResponseDto> getList(
+    public ResponseEntity<? super GetBoardListResponseDto> getList(
 
     ){
-        ResponseEntity<? super GetBoardResponseDto> response = boardService.getList();
+        ResponseEntity<? super GetBoardListResponseDto> response = boardService.getList();
         return response;
     }
 
@@ -57,6 +58,14 @@ public class BoardController {
         @PathVariable("boardNo") int boardNo
     ) {
         ResponseEntity<ResponseDto> response = boardService.put(requestBody, boardNo);
+        return response;
+    }
+
+    @GetMapping("/{boardNo}")
+    public ResponseEntity<? super GetBoardResponseDto> getBoard(
+        @PathVariable("boardNo") int boardNo
+    ) {
+        ResponseEntity<? super GetBoardResponseDto> response = boardService.getBoard(boardNo);
         return response;
     }
 }

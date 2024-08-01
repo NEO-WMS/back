@@ -8,6 +8,7 @@ import com.example.back.entity.LotEntity;
 import lombok.Getter;
 
 @Getter
+
 public class LotListItem {
     
     private String lotCode;
@@ -25,8 +26,8 @@ public class LotListItem {
     }
 
     public static List<LotListItem> getList(List<LotEntity> lotEntities) throws Exception {
-        List<LotListItem> lotList = new ArrayList<>();
 
+        List<LotListItem> lotList = new ArrayList<>();
         for (LotEntity lotEntity: lotEntities) {
             LotListItem lotListItem = new LotListItem(lotEntity);
             lotList.add(lotListItem);
