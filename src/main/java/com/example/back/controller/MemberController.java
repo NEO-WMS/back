@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.back.dto.requset.member.PostMemberCreateRequestDto;
 import com.example.back.dto.requset.member.PutMemberRequestDto;
 import com.example.back.dto.response.ResponseDto;
-import com.example.back.dto.response.member.GetMemberResponseDto;
+import com.example.back.dto.response.member.GetMemberListResponseDto;
 import com.example.back.dto.response.member.GetmemberSearchResponseDto;
 import com.example.back.service.MemberService;
 
@@ -38,8 +38,8 @@ public class MemberController {
     }
     
     @GetMapping("/")
-    public ResponseEntity<? super GetMemberResponseDto> getList() {
-        ResponseEntity<? super GetMemberResponseDto> response = memberService.getList();
+    public ResponseEntity<? super GetMemberListResponseDto> getList() {
+        ResponseEntity<? super GetMemberListResponseDto> response = memberService.getList();
         return response;
     }
 

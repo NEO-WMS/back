@@ -15,17 +15,19 @@ import lombok.Getter;
 
 @Getter
 
-public class GetRankResponseDto extends ResponseDto {
+public class GetRankListResponseDto extends ResponseDto {
     
-    private List<RankListItem> rankListItem;
+    private List<RankListItem> rankList;
 
-    private GetRankResponseDto(List<RankEntity> rankEntities) throws Exception {
+    private GetRankListResponseDto(List<RankEntity> rankEntities) throws Exception {
+
         super(ResponseCode.SUCCESS, ResponseMessage.SUCCESS);
-        this.rankListItem = RankListItem.getList(rankEntities);
+        this.rankList = RankListItem.getList(rankEntities);
     }
 
-    public static ResponseEntity<GetRankResponseDto> success(List<RankEntity> rankEntities) throws Exception {
-        GetRankResponseDto responseBody = new GetRankResponseDto(rankEntities);
+    public static ResponseEntity<GetRankListResponseDto> success(List<RankEntity> rankEntities) throws Exception {
+
+        GetRankListResponseDto responseBody = new GetRankListResponseDto(rankEntities);
         return ResponseEntity.status(HttpStatus.OK).body(responseBody);
     }
 }

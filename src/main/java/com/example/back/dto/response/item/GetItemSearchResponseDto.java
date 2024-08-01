@@ -20,11 +20,13 @@ public class GetItemSearchResponseDto extends ResponseDto {
     private List<ItemListItem> itemList;
 
     private GetItemSearchResponseDto(List<ItemEntity> itemEntities) throws Exception {
+        
         super(ResponseCode.SUCCESS, ResponseMessage.SUCCESS);
         this.itemList = ItemListItem.getList(itemEntities);
     }
 
-    public static ResponseEntity<GetItemSearchResponseDto> success (List<ItemEntity> itemEntities) throws Exception {
+    public static ResponseEntity<GetItemSearchResponseDto> success(List<ItemEntity> itemEntities) throws Exception {
+
         GetItemSearchResponseDto responseBody = new GetItemSearchResponseDto(itemEntities);
         return ResponseEntity.status(HttpStatus.OK).body(responseBody);
     }

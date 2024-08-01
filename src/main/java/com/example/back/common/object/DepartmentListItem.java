@@ -21,9 +21,9 @@ public class DepartmentListItem {
         this.departmentName = departmentEntity.getDepartmentName();
     }
 
-    public static List<DepartmentListItem> getList (List<DepartmentEntity> departmentEntities) throws Exception {
-        List<DepartmentListItem> departmentList = new ArrayList<>();
+    public static List<DepartmentListItem> getList(List<DepartmentEntity> departmentEntities) throws Exception {
 
+        List<DepartmentListItem> departmentList = new ArrayList<>();
         for (DepartmentEntity departmentEntity: departmentEntities) {
             DepartmentListItem departmentListitem = new DepartmentListItem(departmentEntity);
             departmentList.add(departmentListitem);

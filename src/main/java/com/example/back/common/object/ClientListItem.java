@@ -26,8 +26,8 @@ public class ClientListItem {
     }
 
     public static List<ClientListItem> getList(List<ClientEntity> clientEntities) throws Exception {
-        List<ClientListItem> clientList = new ArrayList<>();
 
+        List<ClientListItem> clientList = new ArrayList<>();
         for (ClientEntity clientEntity: clientEntities) {
             ClientListItem clientListItem = new ClientListItem(clientEntity);
             clientList.add(clientListItem);
@@ -35,10 +35,11 @@ public class ClientListItem {
         return clientList;
     }
 
-    public static List<ClientListItem> getListByCategory(List<ClientEntity> clientEntities, Integer category) throws Exception {
+    public static List<ClientListItem> getListByCategory(List<ClientEntity> clientEntities, Integer clientCategory) throws Exception {
+
         List<ClientListItem> clientList = new ArrayList<>();
-        for (ClientEntity clientEntity : clientEntities) {
-            if (clientEntity.getClientCategory().equals(category)) {
+        for (ClientEntity clientEntity: clientEntities) {
+            if (clientEntity.getClientCategory().equals(clientCategory)) {
                 ClientListItem clientListItem = new ClientListItem(clientEntity);
                 clientList.add(clientListItem);
             }

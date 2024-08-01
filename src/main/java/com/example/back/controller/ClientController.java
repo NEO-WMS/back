@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.back.dto.requset.client.PostClientCreateRequestDto;
 import com.example.back.dto.requset.client.PutClientRequestDto;
 import com.example.back.dto.response.ResponseDto;
-import com.example.back.dto.response.client.GetClientResponseDto;
+import com.example.back.dto.response.client.GetClientListResponseDto;
 import com.example.back.dto.response.client.GetClientSearchResponseDto;
 import com.example.back.service.ClientService;
 
@@ -38,10 +38,10 @@ public class ClientController {
     }
 
     @GetMapping("/")
-    public ResponseEntity<? super GetClientResponseDto> getList(
+    public ResponseEntity<? super GetClientListResponseDto> getList(
 
     ) {
-        ResponseEntity<? super GetClientResponseDto> response = clientService.getList();
+        ResponseEntity<? super GetClientListResponseDto> response = clientService.getList();
         return response;
     }
 
@@ -71,18 +71,18 @@ public class ClientController {
     }
 
     @GetMapping("/order")
-    public ResponseEntity<? super GetClientResponseDto> getListByOrderCategory  (
+    public ResponseEntity<? super GetClientListResponseDto> getListByOrderCategory  (
 
     ) {
-        ResponseEntity<? super GetClientResponseDto> response = clientService.getListByOrderCategory(1);
+        ResponseEntity<? super GetClientListResponseDto> response = clientService.getListByOrderCategory(1);
         return response;
     }
 
     @GetMapping("/ordering")
-    public ResponseEntity<? super GetClientResponseDto> getListByOrderingCategory  (
+    public ResponseEntity<? super GetClientListResponseDto> getListByOrderingCategory  (
 
     ) {
-        ResponseEntity<? super GetClientResponseDto> response = clientService.getListByOrderingCategory(2);
+        ResponseEntity<? super GetClientListResponseDto> response = clientService.getListByOrderingCategory(2);
         return response;
     }
 

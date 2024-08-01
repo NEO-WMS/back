@@ -8,6 +8,7 @@ import com.example.back.entity.ItemEntity;
 import lombok.Getter;
 
 @Getter
+
 public class ItemListItem {
 
     private Integer itemNo;
@@ -19,6 +20,7 @@ public class ItemListItem {
     private String itemImage;
 
     private ItemListItem(ItemEntity itemEntity) throws Exception {
+
         this.itemNo = itemEntity.getItemNo();
         this.clientName = itemEntity.getClient().getClientName();
         this.itemCode = itemEntity.getItemCode();
@@ -29,8 +31,8 @@ public class ItemListItem {
     }
 
     public static List<ItemListItem> getList(List<ItemEntity> itemEntities) throws Exception {
-        List<ItemListItem> itemList = new ArrayList<>();
 
+        List<ItemListItem> itemList = new ArrayList<>();
         for (ItemEntity itemEntity: itemEntities) {
             ItemListItem itemListItem = new ItemListItem(itemEntity);
             itemList.add(itemListItem);

@@ -22,12 +22,13 @@ public class RankListItem {
     }
 
     public static List<RankListItem> getList (List<RankEntity> rankEntities) throws Exception {
-        List<RankListItem> rankList = new ArrayList<>();
 
+        List<RankListItem> rankList = new ArrayList<>();
         for (RankEntity rankEntity: rankEntities) {
             RankListItem rankListItem = new RankListItem(rankEntity);
             rankList.add(rankListItem);
         }
+        
         return rankList;
     }
 

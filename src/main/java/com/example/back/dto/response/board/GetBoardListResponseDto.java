@@ -15,23 +15,18 @@ import lombok.Getter;
 
 @Getter
 
-public class GetBoardResponseDto extends ResponseDto {
+public class GetBoardListResponseDto extends ResponseDto {
+    
+    private List<BoardListItem> boardList;
 
-    private Integer boardNo;
-    private String boardTitle;
-    private String boardContext;
-
-    private GetBoardResponseDto(BoardEntity boardEntity) throws Exception {
-
+    private GetBoardListResponseDto(List<BoardEntity> boardEntities) throws Exception {
+        
         super(ResponseCode.SUCCESS, ResponseMessage.SUCCESS);
-        this.boardNo = boardEntity.getBoardNo();
-        this.boardTitle = boardEntity.getBoardTitle();
-        this.boardContext = boardEntity.getBoardContent();
+        this.boardList = BoardListItem.getList(boardEntities);
     }
 
-    public static ResponseEntity<GetBoardResponseDto> success(BoardEntity boardEntities) throws Exception {
-
-        GetBoardResponseDto responseBody = new GetBoardResponseDto(boardEntities);
+    public static ResponseEntity<GetBoardListResponseDto> success(List<BoardEntity> boardEntities) throws Exception {
+        GetBoardListResponseDto responseBody = new GetBoardListResponseDto(boardEntities);
         return ResponseEntity.status(HttpStatus.OK).body(responseBody);
     }
 }
