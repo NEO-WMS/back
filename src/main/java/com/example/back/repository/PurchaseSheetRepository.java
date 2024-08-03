@@ -9,7 +9,7 @@ import com.example.back.entity.PurchaseSheetEntity;
 
 @Repository
 
-public interface PurchaseSheetRepositoy extends JpaRepository<PurchaseSheetEntity, Integer> {
+public interface PurchaseSheetRepository extends JpaRepository<PurchaseSheetEntity, Integer> {
 
     PurchaseSheetEntity findByPurchaseSheetNo(Integer purchaseSheetNo);
 

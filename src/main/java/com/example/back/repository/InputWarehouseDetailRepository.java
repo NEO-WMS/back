@@ -9,7 +9,7 @@ import com.example.back.entity.InputWarehouseDetailEntity;
 
 @Repository
 
-public interface InputWarehouseDetailRepositoy extends JpaRepository<InputWarehouseDetailEntity, Integer> {
+public interface InputWarehouseDetailRepository extends JpaRepository<InputWarehouseDetailEntity, Integer> {
 
     InputWarehouseDetailEntity findByInputWarehouseDetailNo(Integer inputWarehouseDetailNo);
 

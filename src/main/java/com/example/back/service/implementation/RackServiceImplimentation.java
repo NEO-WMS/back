@@ -11,7 +11,7 @@ import com.example.back.dto.response.ResponseDto;
 import com.example.back.dto.response.rack.GetRackListResponseDto;
 import com.example.back.dto.response.rack.GetRackResponseDto;
 import com.example.back.entity.RackEntity;
-import com.example.back.repository.RackRepositoy;
+import com.example.back.repository.RackRepository;
 import com.example.back.service.RackService;
 
 import lombok.RequiredArgsConstructor;
@@ -21,7 +21,7 @@ import lombok.RequiredArgsConstructor;
 
 public class RackServiceImplimentation implements RackService {
 
-    private final RackRepositoy rackRepositoy;
+    private final RackRepository rackRepositoy;
 
     @Override
     public ResponseEntity<ResponseDto> create(PostRackCreateRequestDto dto) {

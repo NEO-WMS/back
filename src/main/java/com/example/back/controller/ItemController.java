@@ -27,15 +27,15 @@ import lombok.RequiredArgsConstructor;
 
 public class ItemController {
     
-    private ItemService itemService;
+    private final ItemService itemService;
 
     @PostMapping("/create")
-    public ResponseEntity<ResponseDto> create (
-        @RequestBody @Valid PostItemCreateRequestDto responseBody
+    public ResponseEntity<ResponseDto> create(
+        @RequestBody @Valid PostItemCreateRequestDto requestBody
     ) {
-        ResponseEntity<ResponseDto> response =itemService.create(responseBody);
+        ResponseEntity<ResponseDto> response = itemService.create(requestBody);
         return response;
-    }
+    }    
 
     @GetMapping("/")
     public ResponseEntity<? super GetItemListResponseDto> getList(

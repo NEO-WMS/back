@@ -11,7 +11,7 @@ import com.example.back.dto.response.ResponseDto;
 import com.example.back.dto.response.warehouse.GetWarehouseListResponseDto;
 import com.example.back.dto.response.warehouse.GetWarehouseResponseDto;
 import com.example.back.entity.WarehouseEntity;
-import com.example.back.repository.WarehouseRepositoy;
+import com.example.back.repository.WarehouseRepository;
 import com.example.back.service.WarehouseService;
 
 import lombok.RequiredArgsConstructor;
@@ -21,7 +21,7 @@ import lombok.RequiredArgsConstructor;
 
 public class WarehouseServiceImplimentation implements WarehouseService {
     
-    private final WarehouseRepositoy warehouseRepositoy;
+    private final WarehouseRepository warehouseRepositoy;
 
     @Override
     public ResponseEntity<ResponseDto> create(PostWarehouseCreateRequestDto dto) {

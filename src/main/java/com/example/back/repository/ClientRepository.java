@@ -11,7 +11,7 @@ import com.example.back.entity.ClientEntity;
 
 @Repository
 
-public interface ClientRepositoy extends JpaRepository<ClientEntity, Integer> {
+public interface ClientRepository extends JpaRepository<ClientEntity, Integer> {
     
     ClientEntity findByClientNo(Integer clientNo);
 

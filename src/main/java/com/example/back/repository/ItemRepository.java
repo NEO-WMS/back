@@ -11,7 +11,7 @@ import com.example.back.entity.ItemEntity;
 
 @Repository
 
-public interface ItemRepositoy extends JpaRepository<ItemEntity, Integer> {
+public interface ItemRepository extends JpaRepository<ItemEntity, Integer> {
 
     ItemEntity findByItemNo(Integer itemNo);
 

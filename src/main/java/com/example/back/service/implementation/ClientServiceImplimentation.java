@@ -11,7 +11,7 @@ import com.example.back.dto.response.ResponseDto;
 import com.example.back.dto.response.client.GetClientListResponseDto;
 import com.example.back.dto.response.client.GetClientSearchResponseDto;
 import com.example.back.entity.ClientEntity;
-import com.example.back.repository.ClientRepositoy;
+import com.example.back.repository.ClientRepository;
 import com.example.back.service.ClientService;
 
 import lombok.RequiredArgsConstructor;
@@ -21,7 +21,7 @@ import lombok.RequiredArgsConstructor;
 
 public class ClientServiceImplimentation implements ClientService {
     
-    private final ClientRepositoy clientRepositoy;
+    private final ClientRepository clientRepositoy;
 
     @Override
     public ResponseEntity<ResponseDto> create(PostClientCreateRequestDto dto) {

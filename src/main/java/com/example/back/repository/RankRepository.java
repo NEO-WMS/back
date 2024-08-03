@@ -11,7 +11,7 @@ import com.example.back.entity.RankEntity;
 
 @Repository
 
-public interface RankRepositoy extends JpaRepository<RankEntity, Integer> {
+public interface RankRepository extends JpaRepository<RankEntity, Integer> {
 
     RankEntity findByRankNo(Integer rankNo);
 

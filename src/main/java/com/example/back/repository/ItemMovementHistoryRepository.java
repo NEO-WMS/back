@@ -9,7 +9,7 @@ import com.example.back.entity.ItemMovementHistoryEntity;
 
 @Repository
 
-public interface ItemMovementHistoryRepositoy extends JpaRepository<ItemMovementHistoryEntity, Integer> {
+public interface ItemMovementHistoryRepository extends JpaRepository<ItemMovementHistoryEntity, Integer> {
 
     ItemMovementHistoryEntity findByItemMovementHistoryNo(Integer itemMovementHistoryNo);
 
