@@ -9,7 +9,7 @@ import com.example.back.entity.RackEntity;
 
 @Repository
 
-public interface RackRepositoy extends JpaRepository<RackEntity, Integer> {
+public interface RackRepository extends JpaRepository<RackEntity, Integer> {
 
     RackEntity findByRackNo(Integer rackNo);
 

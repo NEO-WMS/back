@@ -9,7 +9,7 @@ import com.example.back.entity.OrderSheetEntity;
 
 @Repository
 
-public interface OrderSheetRepositoy extends JpaRepository<OrderSheetEntity, Integer> {
+public interface OrderSheetRepository extends JpaRepository<OrderSheetEntity, Integer> {
 
     OrderSheetEntity findByOrderSheetNo(Integer orderSheetNo);
 

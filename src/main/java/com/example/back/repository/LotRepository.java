@@ -11,7 +11,7 @@ import com.example.back.entity.LotEntity;
 
 @Repository
 
-public interface LotRepositoy extends JpaRepository<LotEntity, Integer> {
+public interface LotRepository extends JpaRepository<LotEntity, Integer> {
 
     LotEntity findByLotNo(Integer lotNo);
 

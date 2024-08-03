@@ -1,7 +1,7 @@
 package com.example.back.dto.requset.item;
 
 import jakarta.validation.constraints.NotBlank;
-
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.NoArgsConstructor;
@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 
 public class PostItemCreateRequestDto {
 
-    @NotBlank
+    @NotNull
     private Integer itemClientNo;
     
     @NotBlank
@@ -21,10 +21,10 @@ public class PostItemCreateRequestDto {
     @NotBlank
     private String itemName;
     
-    @NotBlank
+    @NotNull
     private Integer itemInPrice;
     
-    @NotBlank
+    @NotNull
     private Integer itemOutPrice;
     
     private String itemImage;

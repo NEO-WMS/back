@@ -11,7 +11,7 @@ import com.example.back.dto.response.ResponseDto;
 import com.example.back.dto.response.item.GetItemListResponseDto;
 import com.example.back.dto.response.item.GetItemSearchResponseDto;
 import com.example.back.entity.ItemEntity;
-import com.example.back.repository.ItemRepositoy;
+import com.example.back.repository.ItemRepository;
 import com.example.back.service.ItemService;
 
 import lombok.RequiredArgsConstructor;
@@ -21,14 +21,14 @@ import lombok.RequiredArgsConstructor;
 
 public class ItemServiceImplimentation implements ItemService {
     
-    private final ItemRepositoy itemRepositoy;
+    private final ItemRepository itemRepository;
 
     @Override
     public ResponseEntity<ResponseDto> create(PostItemCreateRequestDto dto) {
 
         try {
             ItemEntity itemEntity = new ItemEntity(dto);
-            itemRepositoy.save(itemEntity);
+            itemRepository.save(itemEntity);
             
         } catch (Exception exception) {
             exception.printStackTrace();
@@ -41,7 +41,7 @@ public class ItemServiceImplimentation implements ItemService {
     public ResponseEntity<? super GetItemListResponseDto> getList() {
 
         try {
-            List<ItemEntity> itemEntities = itemRepositoy.findByOrderByItemNoDesc();
+            List<ItemEntity> itemEntities = itemRepository.findByOrderByItemNoDesc();
             return GetItemListResponseDto.success(itemEntities);
             
         } catch (Exception exception) {
@@ -54,10 +54,10 @@ public class ItemServiceImplimentation implements ItemService {
     public ResponseEntity<ResponseDto> delete(int itemNo) {
 
         try {
-            ItemEntity itemEntity =itemRepositoy.findByItemNo(itemNo);
+            ItemEntity itemEntity =itemRepository.findByItemNo(itemNo);
             if (itemEntity == null) return ResponseDto.noExistItem();
 
-            itemRepositoy.delete(itemEntity);
+            itemRepository.delete(itemEntity);
             
         } catch (Exception exception) {
             exception.printStackTrace();
@@ -70,11 +70,11 @@ public class ItemServiceImplimentation implements ItemService {
     public ResponseEntity<ResponseDto> put(PutItemRequestDto dto, int itemNo) {
 
         try {
-            ItemEntity itemEntity = itemRepositoy.findByItemNo(itemNo);
+            ItemEntity itemEntity = itemRepository.findByItemNo(itemNo);
             if (itemEntity == null) return ResponseDto.noExistItem();
 
             itemEntity.update(dto);
-            itemRepositoy.save(itemEntity);
+            itemRepository.save(itemEntity);
             
         } catch (Exception exception) {
             exception.printStackTrace();
@@ -87,11 +87,11 @@ public class ItemServiceImplimentation implements ItemService {
     public ResponseEntity<? super GetItemSearchResponseDto> search(String search) {
         try {
             if (search == null || search.trim().isEmpty()) {
-                List<ItemEntity> itemEntities = itemRepositoy.findByOrderByItemNoDesc();
+                List<ItemEntity> itemEntities = itemRepository.findByOrderByItemNoDesc();
                 return GetItemSearchResponseDto.success(itemEntities);
             }
 
-            List<ItemEntity> itemEntities = itemRepositoy.search(search);
+            List<ItemEntity> itemEntities = itemRepository.search(search);
             return GetItemSearchResponseDto.success(itemEntities);
             
         } catch (Exception exception) {

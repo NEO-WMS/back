@@ -11,7 +11,7 @@ import com.example.back.dto.response.ResponseDto;
 import com.example.back.dto.response.rank.GetRankListResponseDto;
 import com.example.back.dto.response.rank.GetRankSearchResponseDto;
 import com.example.back.entity.RankEntity;
-import com.example.back.repository.RankRepositoy;
+import com.example.back.repository.RankRepository;
 import com.example.back.service.RankService;
 
 import lombok.RequiredArgsConstructor;
@@ -21,7 +21,7 @@ import lombok.RequiredArgsConstructor;
 
 public class RankServiceImplimentation implements RankService {
     
-    private final RankRepositoy rankRepositoy;
+    private final RankRepository rankRepositoy;
 
     @Override
     public ResponseEntity<ResponseDto> create(PostRankCreateRequestDto dto) {

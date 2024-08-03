@@ -9,7 +9,7 @@ import com.example.back.entity.SellDetailEntity;
 
 @Repository
 
-public interface SellDetailRepositoy extends JpaRepository<SellDetailEntity, Integer> {
+public interface SellDetailRepository extends JpaRepository<SellDetailEntity, Integer> {
 
     SellDetailEntity findBySellDetailNo(Integer sellDetailNo);
 

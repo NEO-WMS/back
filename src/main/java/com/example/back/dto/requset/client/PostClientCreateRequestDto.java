@@ -1,7 +1,7 @@
 package com.example.back.dto.requset.client;
 
 import jakarta.validation.constraints.NotBlank;
-
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.NoArgsConstructor;
@@ -15,7 +15,7 @@ public class PostClientCreateRequestDto {
     @NotBlank
     private String clientCode;
 
-    @NotBlank
+    @NotNull
     private Integer clientCategory;
 
     @NotBlank

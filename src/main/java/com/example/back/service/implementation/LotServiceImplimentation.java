@@ -9,7 +9,7 @@ import com.example.back.dto.response.ResponseDto;
 import com.example.back.dto.response.lot.GetLotListResponseDto;
 import com.example.back.dto.response.lot.GetLotSearchResponseDto;
 import com.example.back.entity.LotEntity;
-import com.example.back.repository.LotRepositoy;
+import com.example.back.repository.LotRepository;
 import com.example.back.service.LotService;
 
 import lombok.RequiredArgsConstructor;
@@ -19,7 +19,7 @@ import lombok.RequiredArgsConstructor;
 
 public class LotServiceImplimentation implements LotService {
     
-    private final LotRepositoy lotRepositoy;
+    private final LotRepository lotRepositoy;
 
     @Override
     public ResponseEntity<? super GetLotListResponseDto> getList() {
