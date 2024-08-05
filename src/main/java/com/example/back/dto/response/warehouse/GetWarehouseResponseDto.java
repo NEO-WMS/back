@@ -14,16 +14,16 @@ import lombok.Getter;
 
 public class GetWarehouseResponseDto extends ResponseDto {
     
-    private Integer WarehouseNo;
-    private String WarehouseCode;
-    private String WarehouseName;
+    private Integer warehouseNo;
+    private String warehouseCode;
+    private String warehouseName;
 
     private GetWarehouseResponseDto(WarehouseEntity warehouseEntity) throws Exception {
 
         super(ResponseCode.SUCCESS, ResponseMessage.SUCCESS);
-        this.WarehouseNo = warehouseEntity.getWarehouseNo();
-        this.WarehouseCode = warehouseEntity.getWarehouseCode();
-        this.WarehouseName = warehouseEntity.getWarehouseName();
+        this.warehouseNo = warehouseEntity.getWarehouseNo();
+        this.warehouseCode = warehouseEntity.getWarehouseCode();
+        this.warehouseName = warehouseEntity.getWarehouseName();
     }
 
     public static ResponseEntity<GetWarehouseResponseDto> success(WarehouseEntity warehouseEntity) throws Exception {
