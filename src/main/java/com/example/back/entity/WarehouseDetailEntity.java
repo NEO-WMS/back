@@ -23,6 +23,7 @@ public class WarehouseDetailEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer warehouseDetailNo;
+
     private String warehouseDetailLotCode;
     private Integer warehouseDetailAmount;
     private Integer warehouseDetailOrderedAmount;

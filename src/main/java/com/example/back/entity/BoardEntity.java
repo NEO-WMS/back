@@ -35,7 +35,7 @@ public class BoardEntity {
     public BoardEntity(PostBoardCreateRequestDto dto) {
         this.boardTitle = dto.getBoardTitle();
         this.boardContent = dto.getBoardContent();
-        this.boardDate = ChangeDateFormatUtil.getCurrentDatetiem();
+        this.boardDate = ChangeDateFormatUtil.getCurrentDate();
     }
 
     public void update(PutBoardRequestDto dto) {

@@ -1,6 +1,7 @@
 package com.example.back.dto.requset.stock;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -8,25 +9,26 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-
 public class PostStockCreateRequestDto {
     
-    @NotBlank
+    @NotNull
     private Integer inputWarehouseDetailItemNo;
 
-    @NotBlank
+    @NotNull
     private Integer inputWarehouseDetailQty;
 
-    @NotBlank
-    private Integer inputWarehouseDetailwarehouseNo;
+    @NotNull
+    private Integer inputWarehouseDetailWarehouseNo;
+
+    @NotNull
+    private Integer inputWarehouseDetailAreaNo;
+
+    @NotNull
+    private Integer inputWarehouseDetailRackNo;
+
+    @NotNull
+    private Integer inputWarehouseDetailCellNo;
 
     @NotBlank
-    private Integer inputWarehouseDetailareaNo;
-
-    @NotBlank
-    private Integer inputWarehouseDetailrackNo;
-
-    @NotBlank
-    private Integer inputWarehouseDetailcellNo;
-
+    private String inputWarehouseDetailArrivalDate;
 }

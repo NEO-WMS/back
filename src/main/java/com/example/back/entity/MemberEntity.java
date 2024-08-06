@@ -78,7 +78,7 @@ public class MemberEntity {
         this.rank.setRankNo(dto.getMemberRankNo());
         this.memberEmail = dto.getMemberEmail();
         this.memberImage = dto.getMemberImage();
-        this.memberRegDate = ChangeDateFormatUtil.getCurrentDatetiem();
+        this.memberRegDate = ChangeDateFormatUtil.getCurrentDate();
         this.memberRole = "ROLE_USER";
     }
 

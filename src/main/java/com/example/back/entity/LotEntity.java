@@ -28,10 +28,10 @@ public class LotEntity {
     private String lotCode;
 
     @ManyToOne
-    @JoinColumn(name = "lot_item_no", insertable = false, updatable = false)
+    @JoinColumn(name = "lot_item_no")
     private ItemEntity item;
 
     @ManyToOne
-    @JoinColumn(name = "input_warehouse_detail", insertable = false, updatable = false)
+    @JoinColumn(name = "input_warehouse_detail_no")
     private InputWarehouseDetailEntity inputWarehouseDetail;
 }
