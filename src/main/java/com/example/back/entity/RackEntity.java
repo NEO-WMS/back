@@ -1,14 +1,18 @@
 package com.example.back.entity;
 
+import java.util.List;
+import java.util.ArrayList;
+
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 import com.example.back.dto.requset.rack.PostRackCreateRequestDto;
 import com.example.back.dto.requset.rack.PutRackRequestDto;
-import com.example.back.dto.requset.stock.PostStockWarehouseAddRequestDto;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -47,8 +51,7 @@ public class RackEntity {
         this.rackName = dto.getRackName();
     }
 
-    public RackEntity (PostStockWarehouseAddRequestDto dto) {
-        this.rackName = dto.getRackName();
-    }
+    @OneToMany(mappedBy = "rack", cascade = CascadeType.ALL)
+    private List<CellEntity> cells = new ArrayList<>();
 
 }

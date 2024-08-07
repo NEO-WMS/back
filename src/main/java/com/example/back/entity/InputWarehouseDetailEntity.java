@@ -1,10 +1,9 @@
 package com.example.back.entity;
 
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-
-import com.example.back.common.util.ChangeDateFormatUtil;
-import com.example.back.dto.requset.stock.PostStockCreateRequestDto;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -18,7 +17,6 @@ import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 
 import java.util.List;
-import java.time.LocalDate;
 
 @Entity
 @Table(name="input_warehouse_detail")
@@ -34,25 +32,29 @@ public class InputWarehouseDetailEntity {
     private Integer inputWarehouseDetailInputWarehouseNo;
     private Integer inputWarehouseDetailPurchaseSheetDetailNo;
     private Integer inputWarehouseDetailStatus;
-    private LocalDate  inputWarehouseDetailArrivalDate;
+    private String  inputWarehouseDetailArrivalDate;
     private Integer inputWarehouseDetailQty;
-    private Integer inputWarehouseDetailWarehouseNo;
-    private Integer inputWarehouseDetailAreaNo;
-    private Integer inputWarehouseDetailRackNo;
-    private Integer inputWarehouseDetailCellNo;
+
+    @ManyToOne
+    @JoinColumn(name = "inputWarehouseDetailWarehouseNo", referencedColumnName = "warehouseNo")
+    private WarehouseEntity warehouse;
+
+    @ManyToOne
+    @JoinColumn(name = "inputWarehouseDetailAreaNo", referencedColumnName = "areaNo")
+    private AreaEntity area;
+
+    @ManyToOne
+    @JoinColumn(name = "inputWarehouseDetailRackNo", referencedColumnName = "rackNo")
+    private RackEntity rack;
+
+    @ManyToOne
+    @JoinColumn(name = "inputWarehouseDetailCellNo", referencedColumnName = "cellNo")
+    private CellEntity cell;
+
     private Integer inputWarehouseDetailLotNo;
     private Integer inputWarehouseDetailItemNo;
 
     @OneToMany(mappedBy = "inputWarehouseDetail", cascade = CascadeType.ALL)
     private List<LotEntity> lots;
 
-    public InputWarehouseDetailEntity(PostStockCreateRequestDto dto) {
-        this.inputWarehouseDetailItemNo = dto.getInputWarehouseDetailItemNo();
-        this.inputWarehouseDetailQty = dto.getInputWarehouseDetailQty();
-        this.inputWarehouseDetailWarehouseNo = dto.getInputWarehouseDetailWarehouseNo();
-        this.inputWarehouseDetailAreaNo = dto.getInputWarehouseDetailAreaNo();
-        this.inputWarehouseDetailRackNo = dto.getInputWarehouseDetailRackNo();
-        this.inputWarehouseDetailCellNo = dto.getInputWarehouseDetailCellNo();
-        this.inputWarehouseDetailArrivalDate = ChangeDateFormatUtil.parseDate(dto.getInputWarehouseDetailArrivalDate());
-    }
 }

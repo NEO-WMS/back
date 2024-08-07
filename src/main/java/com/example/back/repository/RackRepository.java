@@ -14,5 +14,7 @@ public interface RackRepository extends JpaRepository<RackEntity, Integer> {
     RackEntity findByRackNo(Integer rackNo);
 
     List<RackEntity> findByOrderByRackNoDesc();
+
+    List<RackEntity> findAll();
     
 }

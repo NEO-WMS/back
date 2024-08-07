@@ -7,7 +7,6 @@ import jakarta.persistence.Table;
 
 import com.example.back.dto.requset.item.PostItemCreateRequestDto;
 import com.example.back.dto.requset.item.PutItemRequestDto;
-import com.example.back.dto.requset.stock.PostStockItemAddRequestDto;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -59,7 +58,5 @@ public class ItemEntity {
         this.itemImage = dto.getItemImage();
     }
 
-    public ItemEntity(PostStockItemAddRequestDto dto) {
-        this.itemName = dto.getItemName();
-    }
+
 }
