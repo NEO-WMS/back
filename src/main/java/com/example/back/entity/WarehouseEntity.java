@@ -1,12 +1,16 @@
 package com.example.back.entity;
 
+import java.util.List;
+import java.util.ArrayList;
+
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
-import com.example.back.dto.requset.stock.PostStockWarehouseAddRequestDto;
 import com.example.back.dto.requset.warehouse.PostWarehouseCreateRequestDto;
 import com.example.back.dto.requset.warehouse.PutWarehouseRequestDto;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -41,9 +45,7 @@ public class WarehouseEntity {
         this.warehouseName = dto.getWarehouseName();
     }
 
-    public WarehouseEntity(PostStockWarehouseAddRequestDto dto) 
-    {
-        this.warehouseName = dto.getWarehouseName();
-    }
+    @OneToMany(mappedBy = "warehouse", cascade = CascadeType.ALL)
+    private List<AreaEntity> areas = new ArrayList<>();
 
 }

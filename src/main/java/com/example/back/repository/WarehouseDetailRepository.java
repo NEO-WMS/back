@@ -14,5 +14,6 @@ public interface WarehouseDetailRepository extends JpaRepository<WarehouseDetail
     WarehouseDetailEntity findByWarehouseDetailNo(Integer warehouseDetailNo);
 
     List<WarehouseDetailEntity> findByOrderByWarehouseDetailNoDesc();
+
     
 }

@@ -1,7 +1,15 @@
 package com.example.back.entity;
 
+import java.util.List;
+
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+
+import com.example.back.dto.requset.warehouseDetail.PostWarehouseDetailCreateRequestDto;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -23,14 +31,34 @@ public class WarehouseDetailEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer warehouseDetailNo;
-
     private String warehouseDetailLotCode;
     private Integer warehouseDetailAmount;
     private Integer warehouseDetailOrderedAmount;
     private Integer warehouseDetailItemNo;
-    private Integer warehouseDetailWareNo;
-    private Integer warehouseDetailAreaNo;
-    private Integer warehouseDetailRackNo;
-    private Integer warehouseDetailCellNo;
+
+    @ManyToOne
+    @JoinColumn(name = "inputWarehouseDetailWarehouseNo", referencedColumnName = "warehouseNo")
+    private WarehouseEntity warehouse;
+
+    @ManyToOne
+    @JoinColumn(name = "inputWarehouseDetailAreaNo", referencedColumnName = "areaNo")
+    private AreaEntity area;
+
+    @ManyToOne
+    @JoinColumn(name = "inputWarehouseDetailRackNo", referencedColumnName = "rackNo")
+    private RackEntity rack;
+
+    @ManyToOne
+    @JoinColumn(name = "inputWarehouseDetailCellNo", referencedColumnName = "cellNo")
+    private CellEntity cell;
+
+    public WarehouseDetailEntity(PostWarehouseDetailCreateRequestDto dto, WarehouseEntity warehouse, AreaEntity area, RackEntity rack, CellEntity cell) {
+        this.warehouseDetailItemNo = dto.getWarehouseDetailItemNo();
+        this.warehouseDetailAmount = dto.getWarehouseDetailAmount();
+        this.warehouse = warehouse;
+        this.area = area;
+        this.rack = rack;
+        this.cell = cell;
+    }
 
 }

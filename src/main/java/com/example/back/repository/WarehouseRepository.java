@@ -14,5 +14,7 @@ public interface WarehouseRepository extends JpaRepository<WarehouseEntity, Inte
     WarehouseEntity findByWarehouseNo(Integer warehouseNo);
 
     List<WarehouseEntity> findByOrderByWarehouseNoDesc();
+
+    List<WarehouseEntity> findAll();
     
 }

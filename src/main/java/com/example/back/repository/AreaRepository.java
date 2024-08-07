@@ -15,4 +15,6 @@ public interface AreaRepository extends JpaRepository<AreaEntity, Integer> {
 
     List<AreaEntity> findByOrderByAreaNoDesc();
 
+    List<AreaEntity> findAll();
+
 }

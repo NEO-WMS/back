@@ -6,7 +6,6 @@ import org.springframework.stereotype.Repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.example.back.entity.CellEntity;
-
 @Repository
 
 public interface CellRepository extends JpaRepository<CellEntity, Integer> {
@@ -15,4 +14,5 @@ public interface CellRepository extends JpaRepository<CellEntity, Integer> {
 
     List<CellEntity> findByOrderByCellNoDesc();
 
+    List<CellEntity> findAll();
 }
