@@ -24,7 +24,7 @@ public class MemberServiceImplimentation implements MemberService {
 
     private final MemberRepository memberRepository;
 
-    private PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+    private final PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
     @Override
     public ResponseEntity<ResponseDto> create(PostMemberCreateRequestDto dto) {

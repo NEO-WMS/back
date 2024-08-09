@@ -38,7 +38,7 @@ public class AreaEntity {
     private String areaName;
 
     @ManyToOne
-    @JoinColumn(name = "area_ware_no")
+    @JoinColumn(name = "area_warehouse_no")
     private WarehouseEntity warehouse;
 
     public AreaEntity (PostAreaCreateRequestDto dto) {

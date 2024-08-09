@@ -1,11 +1,9 @@
 package com.example.back.service.implementation;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.example.back.common.util.LotCodeGenerator;
-import com.example.back.dto.requset.warehouse.PostWarehouseCreateRequestDto;
 import com.example.back.dto.requset.warehouseDetail.PostWarehouseDetailCreateRequestDto;
 import com.example.back.dto.response.ResponseDto;
 import com.example.back.entity.AreaEntity;
@@ -43,7 +41,7 @@ public class WarehouseDetailServiceImplimentation implements WarehouseDetailServ
 
     private final LotCodeGenerator lotCodeGenerator;
 
-     @Override
+    @Override
     public ResponseEntity<ResponseDto> create(PostWarehouseDetailCreateRequestDto dto) {
         
         try {
@@ -56,7 +54,7 @@ public class WarehouseDetailServiceImplimentation implements WarehouseDetailServ
 
             String lotCode = lotCodeGenerator.generateLotCode();
 
-            WarehouseDetailEntity warehouseDetail = new WarehouseDetailEntity(dto, warehouse, area, rack, cell);
+            WarehouseDetailEntity warehouseDetail = new WarehouseDetailEntity(dto, warehouse, area, rack, cell, item);
             warehouseDetail.setWarehouseDetailLotCode(lotCode);
             warehouseDetailRepository.save(warehouseDetail);
             

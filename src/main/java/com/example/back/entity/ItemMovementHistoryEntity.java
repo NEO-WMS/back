@@ -26,11 +26,11 @@ public class ItemMovementHistoryEntity {
     private Integer itemMovementHistoryItemNo;
     private Integer itemMovementHistoryAmount;
     private String itemMovementHistoryDay;
-    private Integer itemMovementHistoryPrWareNo;
+    private Integer itemMovementHistoryPrWarehouseNo;
     private Integer itemMovementHistoryPrAreaNo;
     private Integer itemMovementHistoryPrRackNo;
     private Integer itemMovementHistoryPrCellNo;
-    private Integer itemMovementHistoryWareNo;
+    private Integer itemMovementHistoryWarehouseNo;
     private Integer itemMovementHistoryAreaNo;
     private Integer itemMovementHistoryRackNo;
     private Integer itemMovementHistoryCellNo;

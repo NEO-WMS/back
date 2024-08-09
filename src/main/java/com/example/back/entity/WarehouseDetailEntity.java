@@ -1,11 +1,8 @@
 package com.example.back.entity;
 
-import java.util.List;
-
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 import com.example.back.dto.requset.warehouseDetail.PostWarehouseDetailCreateRequestDto;
@@ -34,7 +31,10 @@ public class WarehouseDetailEntity {
     private String warehouseDetailLotCode;
     private Integer warehouseDetailAmount;
     private Integer warehouseDetailOrderedAmount;
-    private Integer warehouseDetailItemNo;
+
+    @ManyToOne
+    @JoinColumn(name = "itemNo")
+    private ItemEntity item;
 
     @ManyToOne
     @JoinColumn(name = "inputWarehouseDetailWarehouseNo", referencedColumnName = "warehouseNo")
@@ -52,8 +52,8 @@ public class WarehouseDetailEntity {
     @JoinColumn(name = "inputWarehouseDetailCellNo", referencedColumnName = "cellNo")
     private CellEntity cell;
 
-    public WarehouseDetailEntity(PostWarehouseDetailCreateRequestDto dto, WarehouseEntity warehouse, AreaEntity area, RackEntity rack, CellEntity cell) {
-        this.warehouseDetailItemNo = dto.getWarehouseDetailItemNo();
+    public WarehouseDetailEntity(PostWarehouseDetailCreateRequestDto dto, WarehouseEntity warehouse, AreaEntity area, RackEntity rack, CellEntity cell, ItemEntity item) {
+        this.item = item;
         this.warehouseDetailAmount = dto.getWarehouseDetailAmount();
         this.warehouse = warehouse;
         this.area = area;

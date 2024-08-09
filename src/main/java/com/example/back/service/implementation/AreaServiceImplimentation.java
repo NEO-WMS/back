@@ -21,7 +21,7 @@ import lombok.RequiredArgsConstructor;
 
 public class AreaServiceImplimentation implements AreaService {
 
-    private AreaRepository areaRepository;
+    private final AreaRepository areaRepository;
 
     @Override
     public ResponseEntity<ResponseDto> create(PostAreaCreateRequestDto dto) {
