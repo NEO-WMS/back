@@ -3,9 +3,6 @@ package com.example.back.common.util;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-import org.springframework.stereotype.Component;
-
-@Component
 public class ChangeDateFormatUtil {
 
     public static String getCurrentDate() {

@@ -1,17 +1,18 @@
 package com.example.back.common.util;
 
+import org.springframework.stereotype.Component;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.concurrent.atomic.AtomicInteger;
 
-import org.springframework.stereotype.Component;
 @Component
 public class LotCodeGenerator {
 
-    private final AtomicInteger currentSequence = new AtomicInteger(0);
-    private String currentDateString = getCurrentDateString();
+    private static final AtomicInteger currentSequence = new AtomicInteger(0);
+    private static String currentDateString = getCurrentDateString();
 
-    public synchronized String generateLotCode() {
+    public static synchronized String generateLotCode() {
         String newDateString = getCurrentDateString();
 
         if (!newDateString.equals(currentDateString)) {
@@ -25,7 +26,7 @@ public class LotCodeGenerator {
         return currentDateString + "-" + sequenceString;
     }
 
-    private String getCurrentDateString() {
+    private static String getCurrentDateString() {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
         return dateFormat.format(new Date());
     }

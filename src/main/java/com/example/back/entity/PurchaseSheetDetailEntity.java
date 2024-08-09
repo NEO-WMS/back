@@ -28,6 +28,6 @@ public class PurchaseSheetDetailEntity {
     private Integer purchaseSheetDetailAmount;
     private Integer purchaseSheetDetailStatus;
     private Integer purchaseSheetDetailItemNo;
-    private Integer purchaseSheetDetailWareNo;
+    private Integer purchaseSheetDetailWarehouseNo;
 
 }
